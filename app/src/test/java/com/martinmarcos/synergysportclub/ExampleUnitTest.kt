@@ -1,4 +1,4 @@
-package com.martinmarcos.pruebadam
+package com.martinmarcos.synergysportclub
 
 import org.junit.Test
 

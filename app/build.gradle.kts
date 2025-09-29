@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace = "com.martinmarcos.pruebadam"
+    namespace = "com.martinmarcos.synergysportclub"
     compileSdk = 35
 
     defaultConfig {

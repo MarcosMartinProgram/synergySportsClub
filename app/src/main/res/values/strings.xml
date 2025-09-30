@@ -1,3 +1,17 @@
 <resources>
-    <string name="app_name">PruebaDAM</string>
+    <string name="app_name">SynergySportClub</string>
+    <string name="login_title">Iniciar Sesión</string>
+    <string name="login_username">Ingrese su usuario</string>
+    <string name="login_password">Ingrese su Contraseña</string>
+    <string name="login_button">Iniciar Sesión</string>
+    <string name="login_register">No Tienes Cuenta? Crearla</string>
+    <string name="login_forgot_password">¿Olvidaste tu contraseña?</string>
+    <string name="crear_cuenta_title">Crear Cuenta</string>
+    <string name="crear_cuenta_name">Ingrese su Nombre</string>
+    <string name="crear_cuenta_username">Ingrese su usuario</string>
+    <string name="crear_cuenta_password">Ingrese su Contraseña</string>
+    <string name="crear_cuenta_button">Crear Cuenta</string>
+    <string name="descripcion_logo">Logo del Club</string>
+
+
 </resources>

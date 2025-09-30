@@ -1,34 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="190dp">
 
-        <ImageView
-            android:id="@+id/wave"
-            android:layout_width="match_parent"
-            android:layout_height="280dp"
-            android:scaleType="fitXY"
-            android:src="@drawable/wave_bg"/>
+    <include layout="@layout/activity_layout_header"/>
 
-
-    </FrameLayout>
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="260dp"
-            android:src="@drawable/logosynergy"
-            android:scaleType="centerCrop"/>
-
-    </FrameLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -39,9 +17,11 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Ingrese su usuario"
+            android:paddingTop="12dp"
+            android:paddingBottom="12dp"
+            android:hint="@string/login_username"
             android:inputType="text"
-            android:textSize="18dp"
+            android:textSize="18sp"
             android:layout_marginBottom="10dp"
             android:gravity="center"
             />
@@ -49,35 +29,40 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Ingrese su contraseña"
-            android:inputType="text"
-            android:textSize="18dp"
+            android:paddingTop="12dp"
+            android:paddingBottom="12dp"
+            android:hint="@string/login_password"
+            android:inputType="textPassword"
+            android:textSize="18sp"
             android:layout_marginBottom="10dp"
             android:gravity="center"
             />
         <Button
+            android:id="@+id/buttonLogin"
             android:layout_width="200dp"
             android:layout_height="50dp"
             android:backgroundTint="@color/green"
-            android:text="Iniciar Sesión"
-            android:textSize="18dp"
+            android:text="@string/login_button"
+            android:textSize="18sp"
             android:layout_marginBottom="18dp"
             android:gravity="center"
             />
 
         <TextView
+            android:id="@+id/textViewRegister"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="No Tienes Cuenta? Crearla"
-            android:textSize="18dp"
+            android:text="@string/login_register"
+            android:textSize="18sp"
             android:padding="5dp"
             android:layout_marginBottom="10dp"
             />
         <TextView
+            android:id="@+id/textViewForgotPassword"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Olvdó su contraseña? "
-            android:textSize="18dp"
+            android:text="@string/login_forgot_password"
+            android:textSize="18sp"
             android:layout_marginBottom="10dp"
             />
 

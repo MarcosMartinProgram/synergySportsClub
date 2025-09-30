@@ -8,7 +8,7 @@ android {
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.martinmarcos.pruebadam"
+        applicationId = "com.martinmarcos.synergysportclub"
         minSdk = 24
         targetSdk = 35
         versionCode = 1

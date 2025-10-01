@@ -12,6 +12,7 @@
     <string name="crear_cuenta_password">Ingrese su Contraseña</string>
     <string name="crear_cuenta_button">Crear Cuenta</string>
     <string name="descripcion_logo">Logo del Club</string>
-
+    <string name="navigation_drawer_open">Abrir menú</string>
+    <string name="navigation_drawer_close">Cerrar menú</string>
 
 </resources>

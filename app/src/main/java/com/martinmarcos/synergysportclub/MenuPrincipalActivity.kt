@@ -9,6 +9,9 @@ import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.drawerlayout.widget.DrawerLayout
 import com.google.android.material.navigation.NavigationView
+import com.bumptech.glide.Glide
+import android.widget.ImageView
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 
 class MenuPrincipalActivity : AppCompatActivity() {
 
@@ -17,8 +20,22 @@ class MenuPrincipalActivity : AppCompatActivity() {
     private lateinit var toolbar: Toolbar
 
     override fun onCreate(savedInstanceState: Bundle?) {
+
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_menu_principal)
+
+        val gifImageView1 = findViewById<ImageView>(R.id.gifImageView1)
+        val gifImageView2 = findViewById<ImageView>(R.id.gifImageView2)
+        val gifImageView3 = findViewById<ImageView>(R.id.gifImageView3)
+        val gifImageView4 = findViewById<ImageView>(R.id.gifImageView4)
+        val cornerRadius =  200
+
+        // 2. Cargar cada GIF
+        Glide.with(this).asGif().load(R.drawable.list).transform(RoundedCorners(cornerRadius)).into(gifImageView1)
+        Glide.with(this).asGif().load(R.drawable.cobact).transform(RoundedCorners(cornerRadius)).into(gifImageView2)
+        Glide.with(this).asGif().load(R.drawable.gestion).transform(RoundedCorners(cornerRadius)).into(gifImageView3)
+        Glide.with(this).asGif().load(R.drawable.cuota).transform(RoundedCorners(cornerRadius)).into(gifImageView4)
 
         drawerLayout = findViewById(R.id.drawer_layout)
         navView = findViewById(R.id.nav_view)

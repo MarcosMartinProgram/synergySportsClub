@@ -5,13 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <!-- CONTENIDO PRINCIPAL -->
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <!-- Toolbar con ícono hamburguesa -->
+
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
@@ -22,7 +22,7 @@
              />
 
 
-        <!-- Aquí tu contenido principal -->
+
         <FrameLayout
             android:id="@+id/content_frame"
             android:layout_width="match_parent"
@@ -40,6 +40,9 @@
         android:layout_height="match_parent"
         android:layout_gravity="start"
         app:menu="@menu/menu_navigation"
-        app:headerLayout="@layout/drawer_header" />
+        app:headerLayout="@layout/drawer_header"
+        app:itemIconTint="@color/black"
+        app:itemTextColor="@color/black"/>
+
 
 </androidx.drawerlayout.widget.DrawerLayout>

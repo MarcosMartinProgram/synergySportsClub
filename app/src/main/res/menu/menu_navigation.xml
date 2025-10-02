@@ -1,13 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:id="@+id/nav_inscribir"
-        android:title="Inscribir"
-        android:icon="@drawable/ic_home"/>
-    <item android:id="@+id/nav_cobrar_cuo"
-        android:title="Cobrar Cuota"
-        android:icon="@drawable/ic_person"/>
-    <item android:id="@+id/nav_cobrar_act"
-        android:title="Cobrar Actividad"
-        android:icon="@drawable/ic_settings"/>
+    <group android:id="@+id/group_drawer">
+        <item android:id="@+id/nav_inscribir"
+            android:title="Inscribir"
+            android:icon="@drawable/icon_inscribir"/>
+        <item android:id="@+id/nav_cobrar_cuo"
+            android:title="Cobrar Cuota"
+            android:icon="@drawable/icon_cobrar"/>
+        <item android:id="@+id/nav_cobrar_act"
+            android:title="Cobrar Actividad"
+            android:icon="@drawable/icon_cobrar"/>
+        <item android:id="@+id/nav_gestion"
+            android:title="Gestion"
+            android:icon="@drawable/icon_gestion"/>
+        <item android:id="@+id/nav_generar_carnet"
+            android:title="Generar Carnet"
+            android:icon="@drawable/icon_carnet"/>
+        <item android:id="@+id/nav_listar_vencimientos"
+            android:title="Listar Vencimientos"
+            android:icon="@drawable/icon_listar"/>
+    </group>
+
+    <group
+        android:id="@+id/group_bottom"
+        android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/nav_profile"
+            android:title="Mi Perfil"
+            android:icon="@drawable/ic_profile"/>
+
+        <item
+            android:id="@+id/nav_about"
+            android:title="Acerca de"
+            android:icon="@drawable/ic_info"/>
+
+        <item
+            android:id="@+id/nav_logout"
+            android:title="Cerrar sesión"
+            android:icon="@drawable/ic_logout"/>
+    </group>
 
 </menu>

@@ -1,6 +1,9 @@
 package com.martinmarcos.synergysportclub
 
+import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
+import android.widget.ImageButton
 import android.widget.Toast
 
 import androidx.appcompat.widget.Toolbar
@@ -31,7 +34,7 @@ class MenuPrincipalActivity : AppCompatActivity() {
         val gifImageView4 = findViewById<ImageView>(R.id.gifImageView4)
         val cornerRadius =  200
 
-        // 2. Cargar cada GIF
+
         Glide.with(this).asGif().load(R.drawable.list).transform(RoundedCorners(cornerRadius)).into(gifImageView1)
         Glide.with(this).asGif().load(R.drawable.cobact).transform(RoundedCorners(cornerRadius)).into(gifImageView2)
         Glide.with(this).asGif().load(R.drawable.gestion).transform(RoundedCorners(cornerRadius)).into(gifImageView3)
@@ -102,6 +105,11 @@ class MenuPrincipalActivity : AppCompatActivity() {
             }
             drawerLayout.closeDrawers()
             true
+        }
+        val buttonAtrasMenu = findViewById<ImageButton>(R.id.buttonAtras)
+        buttonAtrasMenu.setOnClickListener {
+            val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
         }
     }
 }

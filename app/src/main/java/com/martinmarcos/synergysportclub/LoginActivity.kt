@@ -3,6 +3,7 @@ package com.martinmarcos.synergysportclub
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
+import android.widget.ImageButton
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 
@@ -20,6 +21,15 @@ class LoginActivity : AppCompatActivity() {
         textViewRegister.setOnClickListener {
             val intent1 = Intent(this, CrearCuentaActivity::class.java)
             startActivity(intent1)
+        }
+        val textViewForgotPassword = findViewById<TextView>(R.id.textViewForgotPassword)
+        textViewForgotPassword.setOnClickListener {
+            val intent1 = Intent(this, RecuperarContraseniaActivity::class.java)
+            startActivity(intent1)
+        }
+        val buttonAtrasMenu = findViewById<ImageButton>(R.id.buttonAtras)
+        buttonAtrasMenu.setOnClickListener {
+            finishAffinity()
         }
 
     }

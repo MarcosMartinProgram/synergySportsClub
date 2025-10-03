@@ -14,5 +14,9 @@
     <string name="descripcion_logo">Logo del Club</string>
     <string name="navigation_drawer_open">Abrir menú</string>
     <string name="navigation_drawer_close">Cerrar menú</string>
+    <string name="recuperar_cuenta_correo">Ingrese su Correo Electrónico</string>
+    <string name="recuperar_cuenta_title">Revise Su correo para recuperar la cuenta</string>
+    <string name="menu">Menu Principal</string>
+
 
 </resources>

@@ -17,6 +17,7 @@
     <string name="recuperar_cuenta_correo">Ingrese su Correo Electrónico</string>
     <string name="recuperar_cuenta_title">Revise Su correo para recuperar la cuenta</string>
     <string name="menu">Menu Principal</string>
+    <string name="bot_n_atras">Botón atras</string>
 
 
 </resources>

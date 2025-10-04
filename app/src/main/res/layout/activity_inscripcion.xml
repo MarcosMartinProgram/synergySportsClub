@@ -1,177 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:background="#91A98D">
-    <!-- TOOLBAR -->
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="?attr/colorPrimary"
-        android:title="@string/titulo_registro"
-        android:titleTextColor="@android:color/white"
-        app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+    android:background="@color/green_menues"
+    >
 
-    <!-- CONTENIDO scrollable -->
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:fillViewport="true"
-        android:paddingBottom="130dp"> <!-- espacio para que no se superponga con el footer -->
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:gravity="center_horizontal"
-            android:padding="16dp"
-            android:maxWidth="480dp">
-
-            <TextView
-                android:id="@+id/tvTitulo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="32dp"
-                android:layout_marginBottom="16dp"
-                android:text="@string/titulo_registro"
-                android:textColor="#111111"
-                android:textSize="20sp"
-                android:textStyle="bold" />
-
-            <!-- Nombre -->
-            <EditText
-                android:id="@+id/inputNombre"
-                android:layout_width="match_parent"
-                android:layout_height="52dp"
-                android:hint="@string/hint_nombre"
-                android:inputType="textPersonName"
-                android:autofillHints="name"
-                android:paddingHorizontal="14dp"
-                android:textColor="#111111"
-                android:textColorHint="#444444"
-                android:background="@android:drawable/edit_text"
-                android:layout_marginBottom="10dp" />
-
-            <!-- Apellido -->
-            <EditText
-                android:id="@+id/inputApellido"
-                android:layout_width="match_parent"
-                android:layout_height="52dp"
-                android:hint="@string/hint_apellido"
-                android:inputType="textPersonName"
-                android:autofillHints="familyName"
-                android:paddingHorizontal="14dp"
-                android:textColor="#111111"
-                android:textColorHint="#444444"
-                android:background="@android:drawable/edit_text"
-                android:layout_marginBottom="10dp" />
-
-            <!-- DNI -->
-            <EditText
-                android:id="@+id/inputDni"
-                android:layout_width="match_parent"
-                android:layout_height="52dp"
-                android:hint="@string/hint_dni"
-                android:inputType="number"
-                android:autofillHints="username"
-                android:paddingHorizontal="14dp"
-                android:textColor="#111111"
-                android:textColorHint="#444444"
-                android:background="@android:drawable/edit_text"
-                android:layout_marginBottom="10dp" />
-
-            <!-- Fecha de nacimiento -->
-            <EditText
-                android:id="@+id/inputFechaNacimiento"
-                android:layout_width="match_parent"
-                android:layout_height="52dp"
-                android:hint="@string/hint_fecha_nac"
-                android:inputType="date"
-                android:autofillHints="birthDateFull"
-                android:paddingHorizontal="14dp"
-                android:textColor="#111111"
-                android:textColorHint="#444444"
-                android:background="@android:drawable/edit_text"
-                android:layout_marginBottom="10dp" />
-
-            <!-- Dirección -->
-            <EditText
-                android:id="@+id/inputDireccion"
-                android:layout_width="match_parent"
-                android:layout_height="52dp"
-                android:hint="@string/hint_direccion"
-                android:inputType="textPostalAddress"
-                android:autofillHints="postalAddress"
-                android:paddingHorizontal="14dp"
-                android:textColor="#111111"
-                android:textColorHint="#444444"
-                android:background="@android:drawable/edit_text"
-                android:layout_marginBottom="10dp" />
-
-            <!-- Teléfono -->
-            <EditText
-                android:id="@+id/inputTelefono"
-                android:layout_width="match_parent"
-                android:layout_height="52dp"
-                android:hint="@string/hint_telefono"
-                android:inputType="phone"
-                android:autofillHints="phone"
-                android:paddingHorizontal="14dp"
-                android:textColor="#111111"
-                android:textColorHint="#444444"
-                android:background="@android:drawable/edit_text"
-                android:layout_marginBottom="10dp" />
-
-            <!-- Email -->
-            <EditText
-                android:id="@+id/inputEmail"
-                android:layout_width="match_parent"
-                android:layout_height="52dp"
-                android:hint="@string/hint_email"
-                android:inputType="textEmailAddress"
-                android:autofillHints="emailAddress"
-                android:paddingHorizontal="14dp"
-                android:textColor="#111111"
-                android:textColorHint="#444444"
-                android:background="@android:drawable/edit_text"
-                android:layout_marginBottom="12dp" />
-
-            <CheckBox
-                android:id="@+id/checkFichaMedica"
-                android:layout_width="wrap_content"
-                android:layout_height="48dp"
-                android:text="@string/label_ficha_medica"
-                android:textColor="#111111"
-                android:layout_marginBottom="16dp" />
-
-            <Button
-                android:id="@+id/btnInscribir"
-                android:layout_width="match_parent"
-                android:layout_height="52dp"
-                android:text="@string/btn_inscribir"
-                android:textAllCaps="false"
-                android:textColor="@android:color/white"
-                android:backgroundTint="#2E7D5D"
-                android:layout_marginBottom="24dp" />
-
-        </LinearLayout>
-    </ScrollView>
-
-    <!-- FOOTER con imagen -->
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="120dp">
+        android:layout_height="match_parent"
+
+        >
+
+        <ImageButton
+            android:id="@+id/buttonAtras"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@color/green_menues"
+            android:layout_marginTop="14dp"
+            android:layout_marginStart="10dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/icon_atras" />
+
 
         <ImageView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="120dp"
             android:src="@drawable/wave_bg_reverse"
-            android:scaleType="fitXY" />
+            android:scaleType="fitXY"
+            android:layout_gravity="bottom"/>
+
+
     </FrameLayout>
 
 </LinearLayout>

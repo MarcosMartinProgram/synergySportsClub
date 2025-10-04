@@ -10,7 +10,7 @@ class GestionActividadActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_gestionactividad)
+        setContentView(R.layout.activity_gestion_actividad)
 
         val btnValorActividad = findViewById<Button>(R.id.btnValorActividad)
         val btnValorCuota = findViewById<Button>(R.id.btnValorCuota)

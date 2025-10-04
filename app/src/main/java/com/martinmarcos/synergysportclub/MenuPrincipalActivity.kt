@@ -62,7 +62,12 @@ class MenuPrincipalActivity : AppCompatActivity() {
                 R.id.nav_inscribir -> Toast.makeText(this, "Inscribir", Toast.LENGTH_SHORT).show()
                 R.id.nav_cobrar_cuo -> Toast.makeText(this, "Cobrar cuota", Toast.LENGTH_SHORT).show()
                 R.id.nav_cobrar_act -> Toast.makeText(this, "Cobrar actividad", Toast.LENGTH_SHORT).show()
-                R.id.nav_gestion -> Toast.makeText(this, "Gestión", Toast.LENGTH_SHORT).show()
+               // R.id.nav_gestion -> Toast.makeText(this, "Gestión", Toast.LENGTH_SHORT).show()
+
+                R.id.nav_gestion -> {
+                    startActivity(Intent(this, GestionActividadActivity::class.java))
+                }
+
                 R.id.nav_generar_carnet -> Toast.makeText(this, "Generar carnet", Toast.LENGTH_SHORT).show()
                 R.id.nav_listar_vencimientos -> Toast.makeText(this, "Listar vencimientos", Toast.LENGTH_SHORT).show()
 

@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#8FB08F">
+
+
+    <FrameLayout
+        android:id="@+id/content_frame"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+    <include layout="@layout/activity_layout_footer"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:gravity="center_horizontal">
+
+        <!-- Título -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="VALOR ACTIVIDAD"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Botones superiores -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginBottom="20dp">
+
+            <Button
+                android:id="@+id/btnActividad"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Actividades"
+                android:backgroundTint="#2C6B53"
+                android:textColor="#FFFFFF"
+                android:layout_marginEnd="8dp"/>
+
+            <Button
+                android:id="@+id/btnValorCuota"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Valor Cuota"
+                android:backgroundTint="#2C6B53"
+                android:textColor="#FFFFFF"/>
+        </LinearLayout>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Seleccionar  Actividad"
+            android:textStyle="bold"
+            android:layout_marginBottom="3dp"/>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Fecha de Actualizacion"
+            android:textStyle="bold"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="2dp"/>
+
+        <!-- Campo horario -->
+        <EditText
+            android:id="@+id/etHorario"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="dd/mm/aa"
+            android:layout_marginBottom="16dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Valor Actividad"
+            android:textStyle="bold"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="2dp"/>
+
+        <EditText
+            android:id="@+id/etValorActividad"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Ingrese Valor Actividad"
+            android:layout_marginBottom="20dp"/>
+
+        <!-- Botones inferiores -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginBottom="20dp">
+
+            <Button
+                android:id="@+id/btnGrabar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="GRABAR"
+                android:backgroundTint="#2C6B53"
+                android:textColor="#FFFFFF"
+                android:layout_marginEnd="12dp"/>
+
+            <Button
+                android:id="@+id/btnSalir"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="SALIR"
+                android:backgroundTint="#2C6B53"
+                android:textColor="#FFFFFF"/>
+        </LinearLayout>
+
+        <!-- Imagen onda abajo -->
+
+    </LinearLayout>
+
+ </FrameLayout>
+
+</LinearLayout>
+

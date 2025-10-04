@@ -14,10 +14,10 @@
         android:theme="@style/Theme.PruebaDAM"
         tools:targetApi="31">
         <activity
-            android:name=".GestionValorActividadActivity"
+            android:name=".ImpresionComprobantesActivity"
             android:exported="false" />
         <activity
-            android:name=".GestionActividadActivity"
+            android:name=".RecuperarContraseniaActivity"
             android:exported="false" />
         <activity
             android:name=".LayoutFooter"

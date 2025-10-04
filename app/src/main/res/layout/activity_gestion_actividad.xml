@@ -4,6 +4,14 @@
     android:layout_height="match_parent"
     android:background="#8FB08F">
 
+    <FrameLayout
+        android:id="@+id/content_frame"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+    <include layout="@layout/activity_layout_footer"/>
+
+
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -186,4 +194,7 @@
             android:src="@drawable/wave_bg_reverse" />
 
     </LinearLayout>
+
+ </FrameLayout>
+
 </ScrollView>

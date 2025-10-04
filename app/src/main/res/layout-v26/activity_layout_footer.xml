@@ -14,8 +14,8 @@
 
         <ImageButton
             android:id="@+id/buttonAtras"
+            android:tooltipText="Esto te lleva a la pantalla anterior/Salir"
             android:layout_width="50dp"
-            android:contentDescription="@string/bot_n_atras1"
             android:layout_height="50dp"
             android:background="@color/green_menues"
             android:layout_marginTop="14dp"

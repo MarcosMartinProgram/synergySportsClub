@@ -12,6 +12,17 @@
 
         >
 
+        <ImageButton
+            android:id="@+id/buttonAtras"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@color/green_menues"
+            android:layout_marginTop="14dp"
+            android:layout_marginStart="10dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/icon_atras" />
+
+
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="120dp"

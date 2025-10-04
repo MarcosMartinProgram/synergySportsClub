@@ -8,6 +8,7 @@
         android:layout_width="match_parent"
         android:layout_height="190dp">
 
+
         <ImageView
             android:id="@+id/wave"
             android:contentDescription="@null"
@@ -15,6 +16,16 @@
             android:layout_height="280dp"
             android:scaleType="fitXY"
             android:src="@drawable/wave_bg"/>
+        <ImageButton
+            android:id="@+id/buttonAtras"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@color/green"
+            android:contentDescription="@string/bot_n_atras"
+            android:layout_marginTop="40dp"
+            android:layout_marginStart="10dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/icon_atras" />
 
 
     </FrameLayout>

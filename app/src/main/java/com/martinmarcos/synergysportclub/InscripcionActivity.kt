@@ -32,14 +32,12 @@ class InscripcionActivity : AppCompatActivity() {
         // --- Botón ATRÁS -> MainActivity ---
         btnAtras.setOnClickListener {
             startActivity(Intent(this, MainActivity::class.java))
-            finish() // cerramos esta pantalla
+            finish() //
         }
 
         // --- Botón INSCRIBIR -> otra pantalla ---
-        // Cambiá MenuPrincipalActivity::class.java por la Activity de destino que quieras.
         btnInscribir.setOnClickListener {
             startActivity(Intent(this, MenuPrincipalActivity::class.java))
-            // si no querés volver con back, podés llamar finish() aquí también.
         }
 
         // --- DatePicker para Fecha de Nacimiento ---

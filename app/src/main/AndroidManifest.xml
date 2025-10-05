@@ -17,9 +17,6 @@
             android:name=".InscripcionActivity"
             android:exported="false" />
         <activity
-            android:name=".ImpresionComprobantesActivity"
-            android:exported="false" />
-        <activity
             android:name=".RecuperarContraseniaActivity"
             android:exported="false" />
         <activity
@@ -37,6 +34,7 @@
         <activity
             android:name=".MainActivity"
             android:exported="false" />
+
         <activity
             android:name=".SplashActivity"
             android:exported="true">

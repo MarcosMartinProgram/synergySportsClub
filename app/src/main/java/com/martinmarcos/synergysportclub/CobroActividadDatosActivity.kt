@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.Button
 import android.widget.ImageButton
 import android.widget.Spinner
 import android.widget.Toast
@@ -16,6 +17,8 @@ class CobroActividadDatosActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_cobro_actividad_datos)
+
+
 
         val spinnerActividades = findViewById<Spinner>(R.id.spinnerActividades)
         val spinnerMetodoPago = findViewById<Spinner>(R.id.spinnerMetodoPago)
@@ -65,11 +68,17 @@ class CobroActividadDatosActivity : AppCompatActivity() {
             }
 
         }
+        val buttonCobrarActividad = findViewById<Button>(R.id.buttonCobrarActividad)
+        buttonCobrarActividad.setOnClickListener {
+            val intent = Intent(this, MenuPrincipalActivity::class.java)
+            startActivity(intent)
+        }
         val buttonAtrasMenu = findViewById<ImageButton>(R.id.buttonAtras)
         buttonAtrasMenu.setOnClickListener {
             val intent = Intent(this, MenuPrincipalActivity::class.java)
             startActivity(intent)
         }
+
 
     }
 }

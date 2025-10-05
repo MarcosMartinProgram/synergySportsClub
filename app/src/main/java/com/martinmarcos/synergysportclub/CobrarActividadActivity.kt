@@ -15,8 +15,8 @@ class CobrarActividadActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_cobrar_actividad)
 
-        val buttonDatosCobro = findViewById<Button>(R.id.buttonRecuperar)
-        buttonDatosCobro.setOnClickListener {
+        val buttonBuscarNoSocio = findViewById<Button>(R.id.buttonBuscarNoSocio)
+        buttonBuscarNoSocio.setOnClickListener {
             val intent = Intent(this, CobroActividadDatosActivity::class.java)
             startActivity(intent)
         }

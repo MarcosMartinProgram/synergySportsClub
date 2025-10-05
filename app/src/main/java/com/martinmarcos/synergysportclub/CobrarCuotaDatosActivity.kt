@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.Button
 import android.widget.ImageButton
 import android.widget.Spinner
 import android.widget.Toast
@@ -42,6 +43,11 @@ class CobrarCuotaDatosActivity : AppCompatActivity() {
         spinnerMetodoPago.adapter = adapter2
         spinnerCuotas.adapter = adapter3
 
+        val buttonCobroCuota = findViewById<Button>(R.id.buttonCobroCuota)
+                buttonCobroCuota.setOnClickListener {
+                    val intent = Intent(this, MenuPrincipalActivity::class.java)
+                    startActivity(intent)
+                }
 
 
         val buttonAtrasMenu = findViewById<ImageButton>(R.id.buttonAtras)

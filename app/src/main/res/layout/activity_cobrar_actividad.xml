@@ -5,7 +5,8 @@
     android:layout_height="match_parent"
     android:background="@color/green_menues"
     android:paddingTop="20dp">
-    <include layout="@layout/activity_layout_footer" />
+    <include layout="@layout/activity_layout_footer"
+        />
 
 
     <LinearLayout
@@ -50,7 +51,7 @@
 
 
         <Button
-            android:id="@+id/buttonRecuperar"
+            android:id="@+id/buttonBuscarNoSocio"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"

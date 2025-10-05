@@ -75,7 +75,7 @@ class MenuPrincipalActivity : AppCompatActivity() {
                     Toast.makeText(this, "Sesión cerrada", Toast.LENGTH_SHORT).show()
                 }
                 /*R.id.nav_inscribir -> {
-                    startActivity(Intent(this, InscribirActivity::class.java))
+                    startActivity(Intent(this, InscripcionActivity::class.java))
                 }
                 R.id.nav_cobrar_cuo -> {
                     startActivity(Intent(this, CobrarCuotaActivity::class.java))

@@ -19,6 +19,28 @@
     <string name="menu">Menu Principal</string>
     <string name="bot_n_atras">Botón atras</string>
     <string name="bot_n_atras1">botón atras</string>
+    <string name="presenta_ficha_m_dica">Presenta Ficha Médica</string>
+    <string name="email">Email</string>
+    <string name="telefono">Telefono</string>
+    <string name="direcci_n">Dirección</string>
+    <string name="fecha_de_nacimiento">Fecha de Nacimiento</string>
+    <string name="dni">DNI</string>
+    <string name="apellido">Apellido</string>
+    <string name="nombres">Nombres</string>
+    <string name="registro_de_nuevo_usuario">Registro de Nuevo Usuario</string>
+    <string name="inscribir">Inscribir</string>
+    <string name="cobro_de_cuota">Cobro de Cuota</string>
+    <string name="buscar_socio">Buscar Socio</string>
+    <string name="ingrese_dni_del_socio">Ingrese DNI del Socio</string>
+    <string name="cobro_de_actividad">Cobro de Actividad</string>
+    <string name="usuario_n_111111">Usuario: N° 111111</string>
+    <string name="seleccionar_actividad">Seleccionar Actividad:</string>
+    <string name="nombre_xxxxxxxx_xxxxxxx">Nombre: xxxxxxxx xxxxxxx</string>
+    <string name="d_as_lun_mar_viernes">Días: Lun - Mar - Viernes</string>
+    <string name="horarios_13_00_a_16_00">Horarios: 13:00 a 16:00</string>
+    <string name="importe_20000">Importe: $20000</string>
+    <string name="m_todo_de_pago">Método de Pago</string>
+    <string name="cuotas">Cuotas</string>
 
 
 </resources>

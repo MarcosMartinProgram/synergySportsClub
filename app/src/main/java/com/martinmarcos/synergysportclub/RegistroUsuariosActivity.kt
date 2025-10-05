@@ -1,0 +1,28 @@
+package com.martinmarcos.synergysportclub
+
+import android.content.Intent
+import android.os.Bundle
+import android.widget.Button
+import android.widget.ImageButton
+import androidx.activity.enableEdgeToEdge
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
+
+class RegistroUsuariosActivity : AppCompatActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        enableEdgeToEdge()
+        setContentView(R.layout.activity_registro_usuarios)
+        val buttonAtrasMenu = findViewById<ImageButton>(R.id.buttonAtras)
+        buttonAtrasMenu.setOnClickListener {
+            val intent = Intent(this, MenuPrincipalActivity::class.java)
+            startActivity(intent)
+        }
+        val buttonInscribir = findViewById<Button>(R.id.buttonRecuperar)
+        buttonInscribir.setOnClickListener {
+            val intent = Intent(this, MenuPrincipalActivity::class.java)
+            startActivity(intent)
+        }
+    }
+}

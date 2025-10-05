@@ -59,10 +59,10 @@ class MenuPrincipalActivity : AppCompatActivity() {
         // Manejar clicks en el menú
         navView.setNavigationItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
-                R.id.nav_inscribir -> Toast.makeText(this, "Inscribir", Toast.LENGTH_SHORT).show()
+                /*R.id.nav_inscribir -> Toast.makeText(this, "Inscribir", Toast.LENGTH_SHORT).show()
                 R.id.nav_cobrar_cuo -> Toast.makeText(this, "Cobrar cuota", Toast.LENGTH_SHORT).show()
                 R.id.nav_cobrar_act -> Toast.makeText(this, "Cobrar actividad", Toast.LENGTH_SHORT).show()
-               // R.id.nav_gestion -> Toast.makeText(this, "Gestión", Toast.LENGTH_SHORT).show()
+                R.id.nav_gestion -> Toast.makeText(this, "Gestión", Toast.LENGTH_SHORT).show()
 
 
 
@@ -73,9 +73,9 @@ class MenuPrincipalActivity : AppCompatActivity() {
                 R.id.nav_about -> Toast.makeText(this, "Acerca de", Toast.LENGTH_SHORT).show()
                 R.id.nav_logout -> {
                     Toast.makeText(this, "Sesión cerrada", Toast.LENGTH_SHORT).show()
-                }
-                /*R.id.nav_inscribir -> {
-                    startActivity(Intent(this, InscribirActivity::class.java))
+                }*/
+                R.id.nav_inscribir -> {
+                    startActivity(Intent(this, RegistroUsuariosActivity::class.java))
                 }
                 R.id.nav_cobrar_cuo -> {
                     startActivity(Intent(this, CobrarCuotaActivity::class.java))
@@ -84,27 +84,27 @@ class MenuPrincipalActivity : AppCompatActivity() {
                     startActivity(Intent(this, CobrarActividadActivity::class.java))
                 }
                 R.id.nav_gestion -> {
-                    startActivity(Intent(this, GestionActivity::class.java))
+                    startActivity(Intent(this, GestionActividadActivity::class.java))
                 }
-                R.id.nav_generar_carnet -> {
+                /*R.id.nav_generar_carnet -> {
                     startActivity(Intent(this, GenerarCarnetActivity::class.java))
-                }
-                R.id.nav_listar_vencimientos -> {
+                }*/
+                /*R.id.nav_listar_vencimientos -> {
                     startActivity(Intent(this, ListarVencimientosActivity::class.java))
-                }
-                R.id.nav_profile -> {
+                }*/
+                /*R.id.nav_profile -> {
                     startActivity(Intent(this, PerfilActivity::class.java))
-                }
-                R.id.nav_about -> {
+                }*/
+                /*R.id.nav_about -> {
                     startActivity(Intent(this, AboutActivity::class.java))
-                }
+                }*/
                 R.id.nav_logout -> {
                     // Al cerrar sesión, volvés al Login y cerrás el actual
                     val intent = Intent(this, LoginActivity::class.java)
                     intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                     startActivity(intent)
                     finish()
-                }*/
+                }
             }
             drawerLayout.closeDrawers()
             true

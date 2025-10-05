@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.martinmarcos.synergysportclub" >
+    package="com.martinmarcos.synergysportclub">
 
     <application
         android:allowBackup="true"
@@ -12,7 +12,22 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.PruebaDAM"
-        tools:targetApi="31" >
+        tools:targetApi="31">
+        <activity
+            android:name=".CobrarCuotaDatosActivity"
+            android:exported="false" />
+        <activity
+            android:name=".CobroActividadDatosActivity"
+            android:exported="false" />
+        <activity
+            android:name=".CobrarActividadActivity"
+            android:exported="false" />
+        <activity
+            android:name=".CobrarCuotaActivity"
+            android:exported="false" />
+        <activity
+            android:name=".RegistroUsuariosActivity"
+            android:exported="false" />
         <activity
             android:name=".GestionValorCuotaActivity"
             android:exported="false" />
@@ -45,7 +60,7 @@
             android:exported="false" />
         <activity
             android:name=".SplashActivity"
-            android:exported="true" >
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

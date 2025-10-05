@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#8FB08F">
+
+    <FrameLayout
+        android:id="@+id/content_frame"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+    <include layout="@layout/activity_layout_footer"/>
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:gravity="center_horizontal">
+
+        <!-- Título -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ACTIVIDADES"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Botones superiores -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginBottom="20dp">
+
+            <Button
+                android:id="@+id/btnValorActividad"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Valor Actividad"
+                android:backgroundTint="#2C6B53"
+                android:textColor="#FFFFFF"
+                android:layout_marginEnd="8dp"/>
+
+            <Button
+                android:id="@+id/btnValorCuota"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Valor Cuota"
+                android:backgroundTint="#2C6B53"
+                android:textColor="#FFFFFF"/>
+        </LinearLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nombre Actividad"
+            android:textStyle="bold"
+            android:layout_marginBottom="3dp"/>
+
+
+        <!-- Campo nombre -->
+        <EditText
+            android:id="@+id/etNombre"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Ingrese Nombre Actividad"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- Texto días -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Días que se dicta"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp"/>
+
+        <!-- Días con checkboxes -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <CheckBox
+                android:id="@+id/cbLunes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Lunes"/>
+
+            <CheckBox
+                android:id="@+id/cbMartes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Martes" />
+
+            <CheckBox
+                android:id="@+id/cbMiercoles"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Miércoles"/>
+
+            <CheckBox
+                android:id="@+id/cbJueves"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Jueves"/>
+
+            <CheckBox
+                android:id="@+id/cbViernes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Viernes"/>
+
+            <CheckBox
+                android:id="@+id/cbSabado"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sábado"/>
+
+            <CheckBox
+                android:id="@+id/cbDomingo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Domingo"/>
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Horarios"
+            android:textStyle="bold"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="2dp"/>
+
+        <!-- Campo horario -->
+        <EditText
+            android:id="@+id/etHorario"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Ingrese datos del horario"
+            android:layout_marginBottom="16dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cupos"
+            android:textStyle="bold"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="2dp"/>
+
+        <EditText
+            android:id="@+id/etCupo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Ingrese Cupo Actividad"
+            android:layout_marginBottom="20dp"/>
+
+        <!-- Botones inferiores -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginBottom="20dp">
+
+            <Button
+                android:id="@+id/btnGrabar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="GRABAR"
+                android:backgroundTint="#2C6B53"
+                android:textColor="#FFFFFF"
+                android:layout_marginEnd="12dp"/>
+
+            <Button
+                android:id="@+id/btnSalir"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="SALIR"
+                android:backgroundTint="#2C6B53"
+                android:textColor="#FFFFFF"/>
+        </LinearLayout>
+
+        <!-- Imagen onda abajo -->
+        <ImageView
+            android:id="@+id/imgOnda"
+            android:layout_width="match_parent"
+            android:layout_height="128dp"
+            android:layout_gravity="bottom"
+            android:scaleType="fitXY"
+            android:src="@drawable/wave_bg_reverse" />
+
+    </LinearLayout>
+
+ </FrameLayout>
+
+</ScrollView>

@@ -40,6 +40,26 @@ class MenuPrincipalActivity : AppCompatActivity() {
         Glide.with(this).asGif().load(R.drawable.gestion).transform(RoundedCorners(cornerRadius)).into(gifImageView3)
         Glide.with(this).asGif().load(R.drawable.cuota).transform(RoundedCorners(cornerRadius)).into(gifImageView4)
 
+        gifImageView1.setOnClickListener {
+
+            startActivity(Intent(this, RegistroUsuariosActivity::class.java))
+        }
+
+        gifImageView2.setOnClickListener {
+
+            startActivity(Intent(this, CobrarCuotaActivity::class.java))
+        }
+
+        gifImageView3.setOnClickListener {
+
+            startActivity(Intent(this, GestionActividadActivity::class.java))
+        }
+
+        gifImageView4.setOnClickListener {
+
+            startActivity(Intent(this, CobrarActividadActivity::class.java))
+        }
+
         drawerLayout = findViewById(R.id.drawer_layout)
         navView = findViewById(R.id.nav_view)
         toolbar = findViewById(R.id.toolbar)
@@ -59,21 +79,7 @@ class MenuPrincipalActivity : AppCompatActivity() {
         // Manejar clicks en el menú
         navView.setNavigationItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
-                /*R.id.nav_inscribir -> Toast.makeText(this, "Inscribir", Toast.LENGTH_SHORT).show()
-                R.id.nav_cobrar_cuo -> Toast.makeText(this, "Cobrar cuota", Toast.LENGTH_SHORT).show()
-                R.id.nav_cobrar_act -> Toast.makeText(this, "Cobrar actividad", Toast.LENGTH_SHORT).show()
-                R.id.nav_gestion -> Toast.makeText(this, "Gestión", Toast.LENGTH_SHORT).show()
 
-
-
-                R.id.nav_generar_carnet -> Toast.makeText(this, "Generar carnet", Toast.LENGTH_SHORT).show()
-                R.id.nav_listar_vencimientos -> Toast.makeText(this, "Listar vencimientos", Toast.LENGTH_SHORT).show()
-
-                R.id.nav_profile -> Toast.makeText(this, "Mi Perfil", Toast.LENGTH_SHORT).show()
-                R.id.nav_about -> Toast.makeText(this, "Acerca de", Toast.LENGTH_SHORT).show()
-                R.id.nav_logout -> {
-                    Toast.makeText(this, "Sesión cerrada", Toast.LENGTH_SHORT).show()
-                }*/
                 R.id.nav_inscribir -> {
                     startActivity(Intent(this, RegistroUsuariosActivity::class.java))
                 }
@@ -89,9 +95,9 @@ class MenuPrincipalActivity : AppCompatActivity() {
                 R.id.nav_generar_carnet -> {
                     startActivity(Intent(this, GenerarCarnetActivity::class.java))
                 }
-                /*R.id.nav_listar_vencimientos -> {
+                R.id.nav_listar_vencimientos -> {
                     startActivity(Intent(this, ListarVencimientosActivity::class.java))
-                }*/
+                }
                 /*R.id.nav_profile -> {
                     startActivity(Intent(this, PerfilActivity::class.java))
                 }*/

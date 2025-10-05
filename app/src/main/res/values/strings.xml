@@ -41,6 +41,9 @@
     <string name="importe_20000">Importe: $20000</string>
     <string name="m_todo_de_pago">Método de Pago</string>
     <string name="cuotas">Cuotas</string>
+    <string name="generar">Generar</string>
+    <string name="ingrese_dni_del_socio2">Ingrese DNI del Socio</string>
+    <string name="generar_carnet">Generar Carnet</string>
 
 
 </resources>

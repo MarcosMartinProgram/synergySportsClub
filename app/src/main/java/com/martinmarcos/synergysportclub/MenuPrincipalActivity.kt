@@ -86,9 +86,9 @@ class MenuPrincipalActivity : AppCompatActivity() {
                 R.id.nav_gestion -> {
                     startActivity(Intent(this, GestionActividadActivity::class.java))
                 }
-                /*R.id.nav_generar_carnet -> {
+                R.id.nav_generar_carnet -> {
                     startActivity(Intent(this, GenerarCarnetActivity::class.java))
-                }*/
+                }
                 /*R.id.nav_listar_vencimientos -> {
                     startActivity(Intent(this, ListarVencimientosActivity::class.java))
                 }*/

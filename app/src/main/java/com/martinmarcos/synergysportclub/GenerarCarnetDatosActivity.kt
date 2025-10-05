@@ -9,15 +9,14 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
-class RegistroUsuariosActivity : AppCompatActivity() {
+class GenerarCarnetDatosActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_registro_usuarios)
+        setContentView(R.layout.activity_generar_carnet_datos)
 
-
-        val buttonInscribir = findViewById<Button>(R.id.buttonRecuperar)
-        buttonInscribir.setOnClickListener {
+        val buttonImprimirCarnet = findViewById<Button>(R.id.buttonImprimirCarnet)
+        buttonImprimirCarnet.setOnClickListener {
             val intent = Intent(this, MenuPrincipalActivity::class.java)
             startActivity(intent)
         }
@@ -26,5 +25,6 @@ class RegistroUsuariosActivity : AppCompatActivity() {
             val intent = Intent(this, MenuPrincipalActivity::class.java)
             startActivity(intent)
         }
+
     }
 }

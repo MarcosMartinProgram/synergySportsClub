@@ -1,10 +1,8 @@
-package com.martinmarcos.synergysportclub
+package com.martinmarcos.synergysportclub.ui
 
 import android.content.Intent
 import android.os.Bundle
-import android.widget.Button
 import android.widget.ImageButton
-import android.widget.Toast
 
 import androidx.appcompat.widget.Toolbar
 
@@ -14,7 +12,11 @@ import androidx.drawerlayout.widget.DrawerLayout
 import com.google.android.material.navigation.NavigationView
 import com.bumptech.glide.Glide
 import android.widget.ImageView
+import android.widget.TextView
+import androidx.appcompat.app.AlertDialog
+//import androidx.compose.ui.semantics.dismiss
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
+import com.martinmarcos.synergysportclub.R
 
 class MenuPrincipalActivity : AppCompatActivity() {
 
@@ -106,10 +108,26 @@ class MenuPrincipalActivity : AppCompatActivity() {
                 }*/
                 R.id.nav_logout -> {
                     // Al cerrar sesión, volvés al Login y cerrás el actual
-                    val intent = Intent(this, LoginActivity::class.java)
-                    intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-                    startActivity(intent)
-                    finish()
+                    AlertDialog.Builder(this)
+                        .setTitle("Cerrar Sesión") // Título del diálogo
+                        .setMessage("¿Estás seguro de que quieres cerrar la sesión?") // Mensaje de confirmación
+                        .setCancelable(false) // El usuario debe presionar un botón
+
+                        // Botón Positivo (confirmación)
+                        .setPositiveButton("Sí") { dialog, which ->
+                            // Si el usuario presiona "Sí", ejecuta el código de logout
+                            val intent = Intent(this, LoginActivity::class.java)
+                            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                            startActivity(intent)
+                            finish()
+                        }
+
+                        // Botón Negativo (cancelación)
+                        .setNegativeButton("No") { dialog, which ->
+                            // Si el usuario presiona "No", simplemente cierra el diálogo
+                            dialog.dismiss()
+                        }
+                        .show()
                 }
             }
             drawerLayout.closeDrawers()
@@ -120,5 +138,9 @@ class MenuPrincipalActivity : AppCompatActivity() {
             val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
         }
+        val tvBienvenido = findViewById<TextView>(R.id.tvBienvenido)
+        val usuario = intent.getStringExtra("usuario") ?: "Usuario"
+        tvBienvenido.text = "Bienvenido $usuario"
+
     }
 }

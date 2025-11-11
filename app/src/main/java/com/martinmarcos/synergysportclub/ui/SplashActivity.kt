@@ -1,10 +1,11 @@
-package com.martinmarcos.synergysportclub
+package com.martinmarcos.synergysportclub.ui
 
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import androidx.appcompat.app.AppCompatActivity
+import com.martinmarcos.synergysportclub.R
 
 class SplashActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

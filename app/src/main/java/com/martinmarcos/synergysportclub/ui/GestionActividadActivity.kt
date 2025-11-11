@@ -1,4 +1,4 @@
-package com.martinmarcos.synergysportclub
+package com.martinmarcos.synergysportclub.ui
 
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
@@ -7,18 +7,19 @@ import android.widget.Button
 import android.content.Intent
 import android.widget.ImageButton
 import android.widget.Toast
+import com.martinmarcos.synergysportclub.R
 
-class GestionValorActividadActivity : AppCompatActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
+class GestionActividadActivity : AppCompatActivity() {
+     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_gestion_valor_actividad)
+        setContentView(R.layout.activity_gestion_actividad)
 
-        val btnActividad = findViewById<Button>(R.id.btnActividad)
+        val btnValorActividad = findViewById<Button>(R.id.btnValorActividad)
         val btnValorCuota = findViewById<Button>(R.id.btnValorCuota)
 
-        btnActividad.setOnClickListener {
-            val intent = Intent(this, GestionActividadActivity::class.java)
+        btnValorActividad.setOnClickListener {
+            val intent = Intent(this, GestionValorActividadActivity::class.java)
             startActivity(intent)
         }
 
@@ -38,6 +39,7 @@ class GestionValorActividadActivity : AppCompatActivity() {
             val intent = Intent(this, MenuPrincipalActivity::class.java)
             startActivity(intent)
         }
+
 
         val buttonGrabar = findViewById<Button>(R.id.btnGrabar)
         buttonGrabar.setOnClickListener {

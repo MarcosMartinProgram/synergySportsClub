@@ -1,6 +1,5 @@
-package com.martinmarcos.synergysportclub
+package com.martinmarcos.synergysportclub.ui
 
-import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
@@ -8,8 +7,7 @@ import android.widget.ImageButton
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
+import com.martinmarcos.synergysportclub.R
 
 class GestionValorCuotaActivity : AppCompatActivity() {
 

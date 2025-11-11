@@ -1,16 +1,14 @@
-package com.martinmarcos.synergysportclub
+package com.martinmarcos.synergysportclub.ui
 
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
+import com.martinmarcos.synergysportclub.R
 
-class LayoutFooter : AppCompatActivity() {
+class ImpresionComprobantesActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_layout_footer)
-
+        setContentView(R.layout.activity_impresion_comprobantes)
     }
 }

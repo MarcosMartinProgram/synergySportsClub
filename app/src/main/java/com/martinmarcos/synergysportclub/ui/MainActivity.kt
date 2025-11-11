@@ -1,7 +1,8 @@
-package com.martinmarcos.synergysportclub
+package com.martinmarcos.synergysportclub.ui
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.martinmarcos.synergysportclub.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -14,61 +14,61 @@
         android:theme="@style/Theme.PruebaDAM"
         tools:targetApi="31">
         <activity
-            android:name=".ListarVencimientosActivity"
+            android:name=".ui.ListarVencimientosActivity"
             android:exported="false" />
         <activity
-            android:name=".GenerarCarnetDatosActivity"
+            android:name=".ui.GenerarCarnetDatosActivity"
             android:exported="false" />
         <activity
-            android:name=".GenerarCarnetActivity"
+            android:name=".ui.GenerarCarnetActivity"
             android:exported="false" />
         <activity
-            android:name=".CobrarCuotaDatosActivity"
+            android:name=".ui.CobrarCuotaDatosActivity"
             android:exported="false" />
         <activity
-            android:name=".CobroActividadDatosActivity"
+            android:name=".ui.CobroActividadDatosActivity"
             android:exported="false" />
         <activity
-            android:name=".CobrarActividadActivity"
+            android:name=".ui.CobrarActividadActivity"
             android:exported="false" />
         <activity
-            android:name=".CobrarCuotaActivity"
+            android:name=".ui.CobrarCuotaActivity"
             android:exported="false" />
         <activity
-            android:name=".RegistroUsuariosActivity"
+            android:name=".ui.RegistroUsuariosActivity"
             android:exported="false" />
         <activity
-            android:name=".GestionValorCuotaActivity"
+            android:name=".ui.GestionValorCuotaActivity"
             android:exported="false" />
         <activity
-            android:name=".GestionActividadActivity"
+            android:name=".ui.GestionActividadActivity"
             android:exported="false" />
         <activity
-            android:name=".GestionValorActividadActivity"
+            android:name=".ui.GestionValorActividadActivity"
             android:exported="false" />
         <activity
-            android:name=".ImpresionComprobantesActivity"
+            android:name=".ui.ImpresionComprobantesActivity"
             android:exported="false" />
         <activity
-            android:name=".RecuperarContraseniaActivity"
+            android:name=".ui.RecuperarContraseniaActivity"
             android:exported="false" />
         <activity
-            android:name=".LayoutFooter"
+            android:name=".ui.LayoutFooter"
             android:exported="false" />
         <activity
-            android:name=".CrearCuentaActivity"
+            android:name=".ui.CrearCuentaActivity"
             android:exported="false" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".ui.LoginActivity"
             android:exported="false" />
         <activity
-            android:name=".MenuPrincipalActivity"
+            android:name=".ui.MenuPrincipalActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".ui.MainActivity"
             android:exported="false" />
         <activity
-            android:name=".SplashActivity"
+            android:name=".ui.SplashActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -1,4 +1,4 @@
-package com.martinmarcos.synergysportclub
+package com.martinmarcos.synergysportclub.ui
 
 import android.content.Intent
 import android.os.Bundle
@@ -6,18 +6,16 @@ import android.widget.Button
 import android.widget.ImageButton
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
+import com.martinmarcos.synergysportclub.R
 
-class CobrarActividadActivity : AppCompatActivity() {
+class CobrarCuotaActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_cobrar_actividad)
-
-        val buttonBuscarNoSocio = findViewById<Button>(R.id.buttonBuscarNoSocio)
-        buttonBuscarNoSocio.setOnClickListener {
-            val intent = Intent(this, CobroActividadDatosActivity::class.java)
+        setContentView(R.layout.activity_cobrar_cuota)
+        val buttonDatosCobro = findViewById<Button>(R.id.buttonRecuperar)
+        buttonDatosCobro.setOnClickListener {
+            val intent = Intent(this, CobrarCuotaDatosActivity::class.java)
             startActivity(intent)
         }
         val buttonAtrasMenu = findViewById<ImageButton>(R.id.buttonAtras)

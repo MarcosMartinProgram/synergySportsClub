@@ -44,6 +44,7 @@
     <string name="generar">Generar</string>
     <string name="ingrese_dni_del_socio2">Ingrese DNI del Socio</string>
     <string name="generar_carnet">Generar Carnet</string>
+    <string name="ingrese_su_email">Ingrese su Email</string>
 
 
 </resources>

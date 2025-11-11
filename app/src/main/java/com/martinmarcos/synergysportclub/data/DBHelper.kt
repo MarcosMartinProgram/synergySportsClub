@@ -1,10 +1,11 @@
 package com.martinmarcos.synergysportclub.data
 
+import android.content.ContentValues
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 
-class DBHelper(context: Context) : SQLiteOpenHelper(context, "SynergySportClub.db", null, 1) {
+class DBHelper(context: Context) : SQLiteOpenHelper(context, "SynergySportClub.db", null, 2) {
 
     companion object {
         private const val CREATE_TABLE_PERSONA = """
@@ -27,12 +28,14 @@ class DBHelper(context: Context) : SQLiteOpenHelper(context, "SynergySportClub.d
 
         private const val CREATE_TABLE_USUARIO = """
             CREATE TABLE usuario (
-                CodUsu INTEGER PRIMARY KEY AUTOINCREMENT,
-                NombreUsu TEXT,
-                PassUsu TEXT,
+                idUsuario INTEGER PRIMARY KEY AUTOINCREMENT,
+                username TEXT UNIQUE,  -- <<< AÑADIDO: Campo para el nombre de usuario
+                mail TEXT,
+                pass TEXT,
+                idPersona INTEGER,
                 RolUsu INTEGER,
-                Activo INTEGER,
-                FOREIGN KEY(RolUsu) REFERENCES roles(RolUsu)
+                FOREIGN KEY (idPersona) REFERENCES persona(idPersona),
+                FOREIGN KEY (RolUsu) REFERENCES roles(RolUsu)
             );"""
 
         private const val CREATE_TABLE_ACTIVIDADES = """
@@ -158,26 +161,32 @@ class DBHelper(context: Context) : SQLiteOpenHelper(context, "SynergySportClub.d
         ALL_CREATE_TABLE_STATEMENTS.forEach { statement ->
             db?.execSQL(statement)
         }
+        // Creamos un ContentValues para insertar los roles de forma segura
+        val rolesValues = ContentValues()
+
+        // Insertar Rol 1: Administrador
+        rolesValues.put("RolUsu", 1)
+        rolesValues.put("NomRol", "Administrador")
+        db?.insert("roles", null, rolesValues)
+
+        // Insertar Rol 2: Socio/Cliente
+        rolesValues.clear() // Limpiamos para reutilizar el objeto
+        rolesValues.put("RolUsu", 2)
+        rolesValues.put("NomRol", "Socio")
+        db?.insert("roles", null, rolesValues)
     }
 
-    /**
-     * Se llama cuando la base de datos necesita ser actualizada.
-     * Esta implementación es simple (borra todo y crea de nuevo).
-     * NO USAR ESTO EN PRODUCCIÓN si quieres conservar datos.
-     */
+
     override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
-        // Borra todas las tablas existentes
-        ALL_TABLE_NAMES.forEach { tableName ->
-            db?.execSQL("DROP TABLE IF EXISTS $tableName")
+        // Esta lógica maneja la actualización de la versión 1 a la 2
+        if (oldVersion < 2) {
+            // Si la versión antigua es la 1, añade la columna 'username' a la tabla 'usuario'.
+            db?.execSQL("ALTER TABLE usuario ADD COLUMN username TEXT")
         }
-        // Vuelve a crear la base de datos
-        onCreate(db)
+
+
     }
 
-    /**
-     * Habilita la coerción de claves foráneas.
-     * Es crucial para que las FOREIGN KEY funcionen correctamente.
-     */
     override fun onOpen(db: SQLiteDatabase?) {
         super.onOpen(db)
         db?.execSQL("PRAGMA foreign_keys=ON;")

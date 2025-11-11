@@ -139,7 +139,7 @@ class MenuPrincipalActivity : AppCompatActivity() {
             startActivity(intent)
         }
         val tvBienvenido = findViewById<TextView>(R.id.tvBienvenido)
-        val usuario = intent.getStringExtra("usuario") ?: "Usuario"
+        val usuario = intent.getStringExtra("usuario_nombre") ?: "Usuario"
         tvBienvenido.text = "Bienvenido $usuario"
 
     }

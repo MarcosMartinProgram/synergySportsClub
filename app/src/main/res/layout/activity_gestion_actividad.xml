@@ -184,6 +184,7 @@
                 android:textColor="#FFFFFF"/>
         </LinearLayout>
 
+
         <!-- Imagen onda abajo -->
         <ImageView
             android:id="@+id/imgOnda"

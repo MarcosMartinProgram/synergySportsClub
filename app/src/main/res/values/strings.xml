@@ -46,5 +46,36 @@
     <string name="generar_carnet">Generar Carnet</string>
     <string name="ingrese_su_email">Ingrese su Email</string>
 
+    <!-- ========= Strings para la pantalla Gestion de Actividad ========= -->
+    <!-- =============================================================== -->
+
+    <!-- Títulos y Labels -->
+    <string name="gestion_actividad_titulo">ACTIVIDADES</string>
+    <string name="gestion_actividad_label_nombre">Nombre Actividad</string>
+    <string name="gestion_actividad_label_dias">Días que se dicta</string>
+    <string name="gestion_actividad_label_horarios">Horarios</string>
+    <string name="gestion_actividad_label_cupos">Cupos</string>
+
+    <!-- Botones -->
+    <string name="gestion_actividad_boton_valor_actividad">Valor Actividad</string>
+    <string name="gestion_actividad_boton_valor_cuota">Valor Cuota</string>
+    <string name="gestion_actividad_boton_grabar">GRABAR</string>
+    <string name="gestion_actividad_boton_salir">SALIR</string>
+
+    <!-- Hints (textos de ayuda en campos de entrada) -->
+    <string name="gestion_actividad_hint_nombre">Ingrese Nombre Actividad</string>
+    <string name="gestion_actividad_hint_horario">Ingrese datos del horario</string>
+    <string name="gestion_actividad_hint_cupo">Ingrese Cupo Actividad</string>
+
+    <!-- Checkboxes (días de la semana) -->
+    <string name="dia_lunes">Lunes</string>
+    <string name="dia_martes">Martes</string>
+    <string name="dia_miercoles">Miércoles</string>
+    <string name="dia_jueves">Jueves</string>
+    <string name="dia_viernes">Viernes</string>
+    <string name="dia_sabado">Sábado</string>
+    <string name="dia_domingo">Domingo</string>
+
+
 
 </resources>

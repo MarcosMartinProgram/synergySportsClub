@@ -1,18 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+    El ScrollView es el contenedor principal. Solo puede tener UN hijo directo.
+    Su altura es 'match_parent' para ocupar toda la pantalla.
+-->
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#8FB08F">
+    android:background="#8FB08F"
+    android:fillViewport="true">
+    <!--
+        NOTA: android:fillViewport="true" es una buena práctica. Le permite al hijo
+        ocupar toda la altura si su contenido es más pequeño que la pantalla.
+    -->
 
-    <FrameLayout
-        android:id="@+id/content_frame"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" >
-
-    <include layout="@layout/activity_layout_footer"/>
-
-
-
+    <!--
+        Este LinearLayout es ahora el ÚNICO hijo directo del ScrollView.
+        Su altura es 'wrap_content', lo que significa que crecerá tanto como
+        su contenido lo necesite. Esto es lo que permite que el ScrollView funcione.
+    -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -20,11 +25,13 @@
         android:padding="16dp"
         android:gravity="center_horizontal">
 
+        <!-- El FrameLayout que estaba aquí ha sido eliminado. -->
+
         <!-- Título -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="ACTIVIDADES"
+            android:text="@string/gestion_actividad_titulo"
             android:textSize="20sp"
             android:textStyle="bold"
             android:layout_marginBottom="16dp" />
@@ -41,7 +48,7 @@
                 android:id="@+id/btnValorActividad"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Valor Actividad"
+                android:text="@string/gestion_actividad_boton_valor_actividad"
                 android:backgroundTint="#2C6B53"
                 android:textColor="#FFFFFF"
                 android:layout_marginEnd="8dp"/>
@@ -50,31 +57,35 @@
                 android:id="@+id/btnValorCuota"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Valor Cuota"
+                android:text="@string/gestion_actividad_boton_valor_cuota"
                 android:backgroundTint="#2C6B53"
                 android:textColor="#FFFFFF"/>
         </LinearLayout>
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Nombre Actividad"
+            android:text="@string/gestion_actividad_label_nombre"
             android:textStyle="bold"
             android:layout_marginBottom="3dp"/>
-
 
         <!-- Campo nombre -->
         <EditText
             android:id="@+id/etNombre"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Ingrese Nombre Actividad"
-            android:layout_marginBottom="16dp"/>
+            android:hint="@string/gestion_actividad_hint_nombre"
+            android:layout_marginBottom="16dp"
+            android:importantForAutofill="no"
+            android:inputType="text"
+            android:minHeight="48dp"/>
 
+        <!-- Aquí sigue el resto de tu contenido... (CheckBoxes, otros EditText, etc.) -->
         <!-- Texto días -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Días que se dicta"
+            android:text="@string/gestion_actividad_label_dias"
             android:textStyle="bold"
             android:layout_marginBottom="8dp"/>
 
@@ -88,49 +99,49 @@
                 android:id="@+id/cbLunes"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Lunes"/>
+                android:text="@string/dia_lunes"/>
 
             <CheckBox
                 android:id="@+id/cbMartes"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Martes" />
+                android:text="@string/dia_martes" />
 
             <CheckBox
                 android:id="@+id/cbMiercoles"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Miércoles"/>
+                android:text="@string/dia_miercoles"/>
 
             <CheckBox
                 android:id="@+id/cbJueves"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Jueves"/>
+                android:text="@string/dia_jueves"/>
 
             <CheckBox
                 android:id="@+id/cbViernes"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Viernes"/>
+                android:text="@string/dia_viernes"/>
 
             <CheckBox
                 android:id="@+id/cbSabado"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Sábado"/>
+                android:text="@string/dia_sabado"/>
 
             <CheckBox
                 android:id="@+id/cbDomingo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Domingo"/>
+                android:text="@string/dia_domingo"/>
         </LinearLayout>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Horarios"
+            android:text="@string/gestion_actividad_label_horarios"
             android:textStyle="bold"
             android:layout_marginTop="16dp"
             android:layout_marginBottom="2dp"/>
@@ -140,13 +151,16 @@
             android:id="@+id/etHorario"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Ingrese datos del horario"
-            android:layout_marginBottom="16dp"/>
+            android:hint="@string/gestion_actividad_hint_horario"
+            android:layout_marginBottom="16dp"
+            android:importantForAutofill="no"
+            android:inputType="text"
+            android:minHeight="48dp"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Cupos"
+            android:text="@string/gestion_actividad_label_cupos"
             android:textStyle="bold"
             android:layout_marginTop="16dp"
             android:layout_marginBottom="2dp"/>
@@ -155,8 +169,11 @@
             android:id="@+id/etCupo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Ingrese Cupo Actividad"
-            android:layout_marginBottom="20dp"/>
+            android:hint="@string/gestion_actividad_hint_cupo"
+            android:layout_marginBottom="20dp"
+            android:importantForAutofill="no"
+            android:inputType="number"
+            android:minHeight="48dp"/>
 
         <!-- Botones inferiores -->
         <LinearLayout
@@ -170,7 +187,7 @@
                 android:id="@+id/btnGrabar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="GRABAR"
+                android:text="@string/gestion_actividad_boton_grabar"
                 android:backgroundTint="#2C6B53"
                 android:textColor="#FFFFFF"
                 android:layout_marginEnd="12dp"/>
@@ -179,23 +196,26 @@
                 android:id="@+id/btnSalir"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="SALIR"
+                android:text="@string/gestion_actividad_boton_salir"
                 android:backgroundTint="#2C6B53"
                 android:textColor="#FFFFFF"/>
         </LinearLayout>
 
+        <!--
+            El include del footer ahora debe estar dentro de este LinearLayout,
+            y el ImageView de la onda también.
+        -->
+        <include layout="@layout/activity_layout_footer"/>
 
-        <!-- Imagen onda abajo -->
         <ImageView
             android:id="@+id/imgOnda"
             android:layout_width="match_parent"
             android:layout_height="128dp"
             android:layout_gravity="bottom"
             android:scaleType="fitXY"
-            android:src="@drawable/wave_bg_reverse" />
+            android:src="@drawable/wave_bg_reverse"
+            android:contentDescription="@null" />
 
     </LinearLayout>
-
- </FrameLayout>
 
 </ScrollView>

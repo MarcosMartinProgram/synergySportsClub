@@ -7,6 +7,7 @@
 
     <include layout="@layout/activity_layout_header"/>
     <EditText
+        android:id="@+id/etNameRegister"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingTop="12dp"
@@ -18,17 +19,50 @@
         android:gravity="center"
         />
     <EditText
+        android:id="@+id/etApellidoRegister"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="12dp"
-        android:paddingBottom="12dp"
-        android:hint="@string/crear_cuenta_username"
-        android:inputType="text"
-        android:textSize="18sp"
+        android:hint="Apellido"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
+        android:layout_marginBottom="16dp" />
+
+    <!-- NUEVO CAMPO PARA EL DNI -->
+    <EditText
+        android:id="@+id/etDniRegister"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="DNI"
+        android:inputType="number"
+        android:minHeight="48dp"
+        android:layout_marginBottom="16dp" />
+
+    <EditText
+        android:id="@+id/etUsernameRegister"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
         android:gravity="center"
-        />
+        android:hint="@string/crear_cuenta_username"
+        android:inputType="text"
+        android:paddingTop="12dp"
+        android:paddingBottom="12dp"
+        android:textSize="18sp" />
     <EditText
+        android:id="@+id/etEmailRegister"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:gravity="center"
+        android:hint="@string/ingrese_su_email"
+        android:inputType="textEmailAddress"
+        android:paddingTop="12dp"
+        android:paddingBottom="12dp"
+        android:textSize="18sp"/>
+
+
+    <EditText
+        android:id="@+id/etPasswordRegister"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingTop="12dp"

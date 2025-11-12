@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?><!-- 1. Usa RelativeLayout como el contenedor raíz -->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/green_menues"
+    android:paddingTop="25dp"
+    >
+
+    <include layout="@layout/activity_layout_footer" />
+
+
+    <ScrollView
+        android:id="@+id/scrollViewContent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        >
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/registro_de_nuevo_usuario"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:layout_marginTop="30dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="24dp"/>
+
+            <EditText
+                android:id="@+id/editTextNombre"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="48dp"
+                android:hint="@string/nombres"
+                android:inputType="textPersonName"
+                android:layout_marginBottom="16dp"/>
+
+            <EditText
+                android:id="@+id/editTextApellido"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="48dp"
+                android:hint="@string/apellido"
+                android:inputType="textPersonName"
+                android:layout_marginBottom="16dp"/>
+
+            <EditText
+                android:id="@+id/editNumberDNI"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="48dp"
+                android:hint="@string/dni"
+                android:inputType="number"
+                android:layout_marginBottom="16dp"/>
+            <EditText
+                android:id="@+id/editFechaNacimiento"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="48dp"
+                android:hint="@string/fecha_de_nacimiento"
+                android:inputType="date"
+                android:layout_marginBottom="16dp"/>
+            <EditText
+                android:id="@+id/editTextPostal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="48dp"
+                android:hint="@string/direcci_n"
+                android:inputType="textPostalAddress"
+                android:layout_marginBottom="16dp"/>
+            <EditText
+                android:id="@+id/editNumberTelefono"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="48dp"
+                android:hint="@string/telefono"
+                android:inputType="number"
+                android:layout_marginBottom="16dp"/>
+            <EditText
+                android:id="@+id/editTextEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="48dp"
+                android:hint="@string/email"
+                android:inputType="textEmailAddress"
+                android:layout_marginBottom="16dp"/>
+            <CheckBox
+                android:id="@+id/checkboxTerminos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minHeight="48dp"
+                android:layout_marginBottom="24dp"
+
+                android:text="@string/presenta_ficha_m_dica" />
+            <Button
+                android:id="@+id/buttonRecuperar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:backgroundTint="@color/green"
+                android:text="@string/inscribir"
+                android:textSize="18sp"
+
+                />
+
+
+
+
+        </LinearLayout>
+    </ScrollView>
+
+
+
+</RelativeLayout>

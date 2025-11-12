@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?><!-- 1. Usa RelativeLayout como el contenedor raíz -->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/green_menues"
+    android:paddingTop="25dp"
+    >
+
+    <include layout="@layout/activity_layout_footer" />
+
+
+
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Listar Vencimientos"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:layout_marginTop="30dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="24dp"/>
+
+        <EditText
+            android:id="@+id/editTextNombre"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="48dp"
+            android:hint="Ingrese Una Fecha"
+            android:inputType="date"
+            android:layout_marginBottom="16dp"/>
+
+
+        <Button
+            android:id="@+id/buttonListar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:backgroundTint="@color/green"
+            android:text="Listar"
+            android:textSize="18sp"
+
+            />
+
+
+
+
+
+
+    </LinearLayout>
+
+
+
+
+</RelativeLayout>

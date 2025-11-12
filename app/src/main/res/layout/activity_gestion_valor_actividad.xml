@@ -1,16 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#8FB08F">
-
-
-    <FrameLayout
-        android:id="@+id/content_frame"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" >
-
-    <include layout="@layout/activity_layout_footer"/>
+    android:background="#8FB08F"
+    android:fillViewport="true">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -54,44 +47,52 @@
                 android:textColor="#FFFFFF"/>
         </LinearLayout>
 
-
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Seleccionar  Actividad"
+            android:text="Seleccionar Actividad"
             android:textStyle="bold"
             android:layout_marginBottom="3dp"/>
 
+        <!-- SPINNER: El componente clave para seleccionar la actividad -->
+        <Spinner
+            android:id="@+id/spinnerActividades"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="48dp"
+            android:background="@android:drawable/btn_dropdown"
+            android:layout_marginBottom="16dp" />
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Fecha de Actualizacion"
+            android:text="Fecha de Actualización"
             android:textStyle="bold"
-            android:layout_marginTop="16dp"
             android:layout_marginBottom="2dp"/>
 
-        <!-- Campo horario -->
+        <!-- FECHA: Le cambié el id para que sea más claro -->
         <EditText
-            android:id="@+id/etHorario"
+            android:id="@+id/etFechaValor"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="dd/mm/aa"
+            android:minHeight="48dp"
             android:layout_marginBottom="16dp"/>
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Valor Actividad"
             android:textStyle="bold"
-            android:layout_marginTop="16dp"
             android:layout_marginBottom="2dp"/>
 
         <EditText
             android:id="@+id/etValorActividad"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Ingrese Valor Actividad"
+            android:hint="Ingrese Valor Actividad (Ej: 3500.50)"
+            android:minHeight="48dp"
+            android:inputType="numberDecimal"
             android:layout_marginBottom="20dp"/>
 
         <!-- Botones inferiores -->
@@ -120,11 +121,9 @@
                 android:textColor="#FFFFFF"/>
         </LinearLayout>
 
-        <!-- Imagen onda abajo -->
+        <!-- El footer lo he movido aquí para que quede debajo de todo -->
+        <include layout="@layout/activity_layout_footer"/>
 
     </LinearLayout>
 
- </FrameLayout>
-
-</LinearLayout>
-
+</ScrollView>

@@ -37,6 +37,17 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginBottom="24dp"/>
 
+            <com.google.android.material.switchmaterial.SwitchMaterial
+                android:id="@+id/switchEsSocio"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="48dp"
+                android:layout_marginBottom="24dp"
+                android:text="No Socio"
+                android:textSize="18sp"
+                android:textStyle="bold"/>
+
+
             <EditText
                 android:id="@+id/editTextNombre"
                 android:layout_width="match_parent"
@@ -78,7 +89,7 @@
                 android:minHeight="48dp"
                 android:hint="@string/direcci_n"
                 android:inputType="textPostalAddress"
-                android:layout_marginBottom="16dp"/>
+                android:layout_marginBottom="14dp"/>
             <EditText
                 android:id="@+id/editNumberTelefono"
                 android:layout_width="match_parent"
@@ -86,7 +97,7 @@
                 android:minHeight="48dp"
                 android:hint="@string/telefono"
                 android:inputType="number"
-                android:layout_marginBottom="16dp"/>
+                android:layout_marginBottom="14dp"/>
             <EditText
                 android:id="@+id/editTextEmail"
                 android:layout_width="match_parent"
@@ -94,7 +105,7 @@
                 android:minHeight="48dp"
                 android:hint="@string/email"
                 android:inputType="textEmailAddress"
-                android:layout_marginBottom="16dp"/>
+                android:layout_marginBottom="14dp"/>
             <CheckBox
                 android:id="@+id/checkboxTerminos"
                 android:layout_width="wrap_content"
@@ -103,18 +114,16 @@
                 android:layout_marginBottom="24dp"
 
                 android:text="@string/presenta_ficha_m_dica" />
+
             <Button
                 android:id="@+id/buttonRecuperar"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
+                android:layout_height="wrap_content" android:layout_gravity="center_horizontal"
                 android:backgroundTint="@color/green"
                 android:text="@string/inscribir"
                 android:textSize="18sp"
 
                 />
-
-
 
 
         </LinearLayout>

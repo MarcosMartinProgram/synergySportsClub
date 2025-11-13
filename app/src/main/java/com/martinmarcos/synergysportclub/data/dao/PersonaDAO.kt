@@ -1,3 +1,4 @@
+// ARCHIVO COMPLETO: data/dao/PersonaDAO.kt
 package com.martinmarcos.synergysportclub.data.dao
 
 import android.content.ContentValues
@@ -10,64 +11,94 @@ class PersonaDAO(context: Context) {
 
     private val dbHelper = DBHelper(context)
 
+    // ================== FUNCIÓN CLAVE #1 ==================
+    // ESTA FUNCIÓN DEBE ACEPTAR PARÁMETROS NULOS (con '?')
     fun addPersona(
         nombre: String,
         apellido: String,
         dni: String,
-        fechaNacimiento: String?,
-        domicilio: String?,
+        idRol: Int,
+        username: String?,
+        pass: String?,
+        fechaAlta: String,
         telefono: String?,
-        fichaMedica: String?
+        email: String?,
+        domicilio: String?,
+        fechaNacimiento: String?,
+        fichaMedica: Boolean
     ): Long {
         val db = dbHelper.writableDatabase
+        var nuevoId: Long = -1L
+
         val values = ContentValues().apply {
             put("nombre", nombre)
             put("apellido", apellido)
             put("dni", dni)
-            put("fechaNacimiento", fechaNacimiento)
-            put("domicilio", domicilio)
+            put("idRol", idRol)
+            put("username", username)
+            put("password", pass)
+            put("fechaAlta", fechaAlta)
             put("telefono", telefono)
-            put("fichaMedica", fichaMedica)
+            put("email", email)
+            put("domicilio", domicilio)
+            put("fechaNacimiento", fechaNacimiento)
+            put("fichaMedica", if (fichaMedica) 1 else 0)
         }
 
-        var nuevoId: Long = -1
         try {
-            nuevoId = db.insert("persona", null, values)
+            nuevoId = db.insertOrThrow("persona", null, values)
+            Log.i("PersonaDAO", "Persona insertada con éxito. ID: $nuevoId, Rol: $idRol")
         } catch (e: Exception) {
-            Log.e("PersonaDAO", "Error al insertar persona", e)
-        } finally {
-            db.close()
+            Log.e("PersonaDAO", "Error al insertar persona. DNI o Username podrían estar duplicados.", e)
+            nuevoId = -1L
         }
         return nuevoId
     }
 
-    fun getPersonaPorDni(dni: String): Persona? {
+    // El resto de tus funciones de PersonaDAO (validarUsuario, etc.)
+    fun validarUsuario(username: String, pass: String): Int? {
         val db = dbHelper.readableDatabase
-        val cursor = db.query(
-            "persona",
-            null, // todas las columnas
-            "dni = ?",
-            arrayOf(dni),
-            null,
-            null,
-            null
-        )
-
-        var persona: Persona? = null
-        if (cursor.moveToFirst()) {
-            persona = Persona(
-                id = cursor.getLong(cursor.getColumnIndexOrThrow("idPersona")),
-                nombre = cursor.getString(cursor.getColumnIndexOrThrow("nombre")),
-                apellido = cursor.getString(cursor.getColumnIndexOrThrow("apellido")),
-                dni = cursor.getString(cursor.getColumnIndexOrThrow("dni")),
-                fechaNacimiento = cursor.getString(cursor.getColumnIndexOrThrow("fechaNacimiento")),
-                domicilio = cursor.getString(cursor.getColumnIndexOrThrow("domicilio")),
-                telefono = cursor.getString(cursor.getColumnIndexOrThrow("telefono")),
-                fichaMedica = cursor.getString(cursor.getColumnIndexOrThrow("fichaMedica"))
-            )
+        var idRol: Int? = null
+        val query = "SELECT idRol FROM persona WHERE username = ? AND password = ? AND activo = 1"
+        try {
+            db.rawQuery(query, arrayOf(username, pass)).use { cursor ->
+                if (cursor.moveToFirst()) {
+                    idRol = cursor.getInt(cursor.getColumnIndexOrThrow("idRol"))
+                }
+            }
+        } catch (e: Exception) {
+            Log.e("PersonaDAO", "Excepción al validar usuario.", e)
         }
-        cursor.close()
-        db.close()
+        return idRol
+    }
+
+    fun getPersonaPorUsername(username: String): Persona? {
+        val db = dbHelper.readableDatabase
+        var persona: Persona? = null
+        val query = "SELECT * FROM persona WHERE username = ?"
+        try {
+            db.rawQuery(query, arrayOf(username)).use { cursor ->
+                if (cursor.moveToFirst()) {
+                    persona = Persona(
+                        idPersona = cursor.getInt(cursor.getColumnIndexOrThrow("idPersona")),
+                        nombre = cursor.getString(cursor.getColumnIndexOrThrow("nombre")),
+                        apellido = cursor.getString(cursor.getColumnIndexOrThrow("apellido")),
+                        dni = cursor.getString(cursor.getColumnIndexOrThrow("dni")),
+                        idRol = cursor.getInt(cursor.getColumnIndexOrThrow("idRol")),
+                        username = cursor.getString(cursor.getColumnIndexOrThrow("username")),
+                        activo = cursor.getInt(cursor.getColumnIndexOrThrow("activo")) == 1,
+                        fechaAlta = cursor.getString(cursor.getColumnIndexOrThrow("fechaAlta")),
+                        telefono = cursor.getString(cursor.getColumnIndexOrThrow("telefono")),
+                        email = cursor.getString(cursor.getColumnIndexOrThrow("email")),
+                        domicilio = cursor.getString(cursor.getColumnIndexOrThrow("domicilio")),
+                        fechaNacimiento = cursor.getString(cursor.getColumnIndexOrThrow("fechaNacimiento")),
+                        fichaMedica = cursor.getInt(cursor.getColumnIndexOrThrow("fichaMedica")) == 1
+                    )
+                }
+            }
+        } catch (e: Exception) {
+            Log.e("PersonaDAO", "Error al buscar persona por username", e)
+        }
         return persona
     }
 }

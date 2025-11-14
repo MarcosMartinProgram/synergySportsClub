@@ -1,34 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<!-- Contenedor principal RelativeLayout para posicionar el footer y el contenido por separado -->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#8FB08F">
 
+    <!-- El footer con el botón de atrás se incluye aquí, en la capa principal y queda fijo arriba -->
+    <include layout="@layout/activity_layout_footer"/>
 
-    <FrameLayout
-        android:id="@+id/content_frame"
+    <!-- ScrollView contiene todo el formulario y se posiciona debajo del footer, permitiendo el desplazamiento -->
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
-
-        <include layout="@layout/activity_layout_footer"/>
+        android:layout_height="match_parent"
+        android:layout_marginTop="?attr/actionBarSize"
+        android:fillViewport="true">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="16dp"
+            android:padding="24dp"
             android:gravity="center_horizontal">
 
             <!-- Título -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="VALOR CUOTA"
+                android:text="GESTIONAR VALOR DE CUOTA"
                 android:textSize="20sp"
                 android:textStyle="bold"
-                android:layout_marginBottom="16dp" />
+                android:layout_marginBottom="32dp" />
 
-            <!-- Botones superiores -->
+            <!-- Botones superiores de navegación (corregidos para esta pantalla) -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -54,48 +57,58 @@
                     android:textColor="#FFFFFF"/>
             </LinearLayout>
 
-
+            <!-- Campo para el Monto (con ID corregido) -->
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Fecha de Actualizacion"
-                android:textStyle="bold"
-                android:layout_marginTop="16dp"
-                android:layout_marginBottom="2dp"/>
-
-            <!-- Campo horario -->
-            <EditText
-                android:id="@+id/etHorario"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="dd/mm/aa"
-                android:layout_marginBottom="16dp"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Valor Cuota"
-                android:textStyle="bold"
-                android:layout_marginTop="16dp"
-                android:layout_marginBottom="2dp"/>
+                android:text="Monto de la Cuota"
+                android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/etValorActividad"
+                android:id="@+id/etMontoCuota"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Ingrese Valor Cuota"
-                android:layout_marginBottom="20dp"/>
+                android:minHeight="48dp"
+                android:hint="Ej: 5000"
+                android:inputType="numberDecimal"
+                android:layout_marginBottom="24dp"/>
 
-            <!-- Botones inferiores -->
+            <!-- Campo para la Fecha (con ID corregido) -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Vigente Desde (dd/mm/aaaa)"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/etFechaDesdeCuota"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="48dp"
+                android:hint="Fecha actual si se deja vacío"
+                android:inputType="date"
+                android:layout_marginBottom="32dp"/>
+
+            <!-- TextView para Mensaje de Éxito (inicialmente invisible) -->
+            <TextView
+                android:id="@+id/tvMensajeExitoCuota"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="¡Valor de cuota guardado con éxito!"
+                android:textColor="#006400"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:layout_marginBottom="16dp"
+                android:visibility="invisible" />
+
+            <!-- Botones de acción (con IDs corregidos) -->
             <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center"
-                android:layout_marginBottom="20dp">
+                android:orientation="horizontal">
 
                 <Button
-                    android:id="@+id/btnGrabar"
+                    android:id="@+id/btnGrabarValorCuota"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="GRABAR"
@@ -112,11 +125,8 @@
                     android:textColor="#FFFFFF"/>
             </LinearLayout>
 
-            <!-- Imagen onda abajo -->
-
         </LinearLayout>
 
-    </FrameLayout>
+    </ScrollView>
 
-</LinearLayout>
-
+</RelativeLayout>

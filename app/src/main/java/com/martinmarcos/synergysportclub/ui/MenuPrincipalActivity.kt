@@ -1,10 +1,8 @@
-package com.martinmarcos.synergysportclub
+package com.martinmarcos.synergysportclub.ui
 
 import android.content.Intent
 import android.os.Bundle
-import android.widget.Button
 import android.widget.ImageButton
-import android.widget.Toast
 
 import androidx.appcompat.widget.Toolbar
 
@@ -14,7 +12,11 @@ import androidx.drawerlayout.widget.DrawerLayout
 import com.google.android.material.navigation.NavigationView
 import com.bumptech.glide.Glide
 import android.widget.ImageView
+import android.widget.TextView
+import androidx.appcompat.app.AlertDialog
+//import androidx.compose.ui.semantics.dismiss
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
+import com.martinmarcos.synergysportclub.R
 
 class MenuPrincipalActivity : AppCompatActivity() {
 
@@ -40,6 +42,26 @@ class MenuPrincipalActivity : AppCompatActivity() {
         Glide.with(this).asGif().load(R.drawable.gestion).transform(RoundedCorners(cornerRadius)).into(gifImageView3)
         Glide.with(this).asGif().load(R.drawable.cuota).transform(RoundedCorners(cornerRadius)).into(gifImageView4)
 
+        gifImageView1.setOnClickListener {
+
+            startActivity(Intent(this, RegistroUsuariosActivity::class.java))
+        }
+
+        gifImageView2.setOnClickListener {
+
+            startActivity(Intent(this, CobrarCuotaActivity::class.java))
+        }
+
+        gifImageView3.setOnClickListener {
+
+            startActivity(Intent(this, GestionActividadActivity::class.java))
+        }
+
+        gifImageView4.setOnClickListener {
+
+            startActivity(Intent(this, CobrarActividadActivity::class.java))
+        }
+
         drawerLayout = findViewById(R.id.drawer_layout)
         navView = findViewById(R.id.nav_view)
         toolbar = findViewById(R.id.toolbar)
@@ -59,23 +81,9 @@ class MenuPrincipalActivity : AppCompatActivity() {
         // Manejar clicks en el menú
         navView.setNavigationItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
-                R.id.nav_inscribir -> Toast.makeText(this, "Inscribir", Toast.LENGTH_SHORT).show()
-                R.id.nav_cobrar_cuo -> Toast.makeText(this, "Cobrar cuota", Toast.LENGTH_SHORT).show()
-                R.id.nav_cobrar_act -> Toast.makeText(this, "Cobrar actividad", Toast.LENGTH_SHORT).show()
-               // R.id.nav_gestion -> Toast.makeText(this, "Gestión", Toast.LENGTH_SHORT).show()
 
-
-
-                R.id.nav_generar_carnet -> Toast.makeText(this, "Generar carnet", Toast.LENGTH_SHORT).show()
-                R.id.nav_listar_vencimientos -> Toast.makeText(this, "Listar vencimientos", Toast.LENGTH_SHORT).show()
-
-                R.id.nav_profile -> Toast.makeText(this, "Mi Perfil", Toast.LENGTH_SHORT).show()
-                R.id.nav_about -> Toast.makeText(this, "Acerca de", Toast.LENGTH_SHORT).show()
-                R.id.nav_logout -> {
-                    Toast.makeText(this, "Sesión cerrada", Toast.LENGTH_SHORT).show()
-                }
-                /*R.id.nav_inscribir -> {
-                    startActivity(Intent(this, InscribirActivity::class.java))
+                R.id.nav_inscribir -> {
+                    startActivity(Intent(this, RegistroUsuariosActivity::class.java))
                 }
                 R.id.nav_cobrar_cuo -> {
                     startActivity(Intent(this, CobrarCuotaActivity::class.java))
@@ -84,7 +92,7 @@ class MenuPrincipalActivity : AppCompatActivity() {
                     startActivity(Intent(this, CobrarActividadActivity::class.java))
                 }
                 R.id.nav_gestion -> {
-                    startActivity(Intent(this, GestionActivity::class.java))
+                    startActivity(Intent(this, GestionActividadActivity::class.java))
                 }
                 R.id.nav_generar_carnet -> {
                     startActivity(Intent(this, GenerarCarnetActivity::class.java))
@@ -92,19 +100,35 @@ class MenuPrincipalActivity : AppCompatActivity() {
                 R.id.nav_listar_vencimientos -> {
                     startActivity(Intent(this, ListarVencimientosActivity::class.java))
                 }
-                R.id.nav_profile -> {
+                /*R.id.nav_profile -> {
                     startActivity(Intent(this, PerfilActivity::class.java))
-                }
-                R.id.nav_about -> {
+                }*/
+                /*R.id.nav_about -> {
                     startActivity(Intent(this, AboutActivity::class.java))
-                }
+                }*/
                 R.id.nav_logout -> {
                     // Al cerrar sesión, volvés al Login y cerrás el actual
-                    val intent = Intent(this, LoginActivity::class.java)
-                    intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-                    startActivity(intent)
-                    finish()
-                }*/
+                    AlertDialog.Builder(this)
+                        .setTitle("Cerrar Sesión") // Título del diálogo
+                        .setMessage("¿Estás seguro de que quieres cerrar la sesión?") // Mensaje de confirmación
+                        .setCancelable(false) // El usuario debe presionar un botón
+
+                        // Botón Positivo (confirmación)
+                        .setPositiveButton("Sí") { dialog, which ->
+                            // Si el usuario presiona "Sí", ejecuta el código de logout
+                            val intent = Intent(this, LoginActivity::class.java)
+                            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                            startActivity(intent)
+                            finish()
+                        }
+
+                        // Botón Negativo (cancelación)
+                        .setNegativeButton("No") { dialog, which ->
+                            // Si el usuario presiona "No", simplemente cierra el diálogo
+                            dialog.dismiss()
+                        }
+                        .show()
+                }
             }
             drawerLayout.closeDrawers()
             true
@@ -114,5 +138,9 @@ class MenuPrincipalActivity : AppCompatActivity() {
             val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
         }
+        val tvBienvenido = findViewById<TextView>(R.id.tvBienvenido)
+        val usuario = intent.getStringExtra("usuario_nombre") ?: "Usuario"
+        tvBienvenido.text = "Bienvenido $usuario"
+
     }
 }

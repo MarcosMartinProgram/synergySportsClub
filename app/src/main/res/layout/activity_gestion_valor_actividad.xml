@@ -1,130 +1,150 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<!-- 1. El contenedor raíz ahora es un RelativeLayout -->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#8FB08F">
 
-
-    <FrameLayout
-        android:id="@+id/content_frame"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" >
-
+    <!-- 2. El footer se incluye aquí, en la capa principal. Se posicionará donde su propio layout le diga (arriba) -->
     <include layout="@layout/activity_layout_footer"/>
 
-    <LinearLayout
+    <!-- 3. El ScrollView ahora está debajo del footer y ocupa el resto del espacio -->
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="16dp"
-        android:gravity="center_horizontal">
+        android:layout_height="match_parent"
+        android:layout_marginTop="?attr/actionBarSize"
+        android:fillViewport="true">
+        <!-- El layout_marginTop deja espacio para la barra del footer -->
 
-        <!-- Título -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="VALOR ACTIVIDAD"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:layout_marginBottom="16dp" />
-
-        <!-- Botones superiores -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center"
-            android:layout_marginBottom="20dp">
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:gravity="center_horizontal">
 
-            <Button
-                android:id="@+id/btnActividad"
+            <!-- Título -->
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Actividades"
-                android:backgroundTint="#2C6B53"
-                android:textColor="#FFFFFF"
-                android:layout_marginEnd="8dp"/>
+                android:text="VALOR ACTIVIDAD"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="16dp" />
 
-            <Button
-                android:id="@+id/btnValorCuota"
+            <!-- Botones superiores -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_marginBottom="20dp">
+
+                <Button
+                    android:id="@+id/btnActividad"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Actividades"
+                    android:backgroundTint="#2C6B53"
+                    android:textColor="#FFFFFF"
+                    android:layout_marginEnd="8dp"/>
+
+                <Button
+                    android:id="@+id/btnValorCuota"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Valor Cuota"
+                    android:backgroundTint="#2C6B53"
+                    android:textColor="#FFFFFF"/>
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Seleccionar Actividad"
+                android:textStyle="bold"
+                android:layout_marginBottom="3dp"/>
+
+            <!-- SPINNER -->
+            <Spinner
+                android:id="@+id/spinnerActividades"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="48dp"
+                android:background="@android:drawable/btn_dropdown"
+                android:layout_marginBottom="16dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Fecha de Actualización"
+                android:textStyle="bold"
+                android:layout_marginBottom="2dp"/>
+
+            <EditText
+                android:id="@+id/etFechaValor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="dd/mm/aa"
+                android:minHeight="48dp"
+                android:layout_marginBottom="16dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Valor Actividad"
+                android:textStyle="bold"
+                android:layout_marginBottom="2dp"/>
+
+            <EditText
+                android:id="@+id/etValorActividad"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Ingrese Valor Actividad (Ej: 3500.50)"
+                android:minHeight="48dp"
+                android:inputType="numberDecimal"
+                android:layout_marginBottom="20dp"/>
+
+            <!-- TextView para Mensaje de Éxito -->
+            <TextView
+                android:id="@+id/tvMensajeExito"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Valor Cuota"
-                android:backgroundTint="#2C6B53"
-                android:textColor="#FFFFFF"/>
+                android:text="¡Valor guardado con éxito!"
+                android:textColor="#006400"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:layout_marginBottom="16dp"
+                android:visibility="invisible" />
+
+            <!-- Botones inferiores -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_marginBottom="20dp">
+
+                <Button
+                    android:id="@+id/btnGrabar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="GRABAR"
+                    android:backgroundTint="#2C6B53"
+                    android:textColor="#FFFFFF"
+                    android:layout_marginEnd="12dp"/>
+
+                <Button
+                    android:id="@+id/btnSalir"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="SALIR"
+                    android:backgroundTint="#2C6B53"
+                    android:textColor="#FFFFFF"/>
+            </LinearLayout>
+
         </LinearLayout>
 
+    </ScrollView>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Seleccionar  Actividad"
-            android:textStyle="bold"
-            android:layout_marginBottom="3dp"/>
-
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Fecha de Actualizacion"
-            android:textStyle="bold"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="2dp"/>
-
-        <!-- Campo horario -->
-        <EditText
-            android:id="@+id/etHorario"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="dd/mm/aa"
-            android:layout_marginBottom="16dp"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Valor Actividad"
-            android:textStyle="bold"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="2dp"/>
-
-        <EditText
-            android:id="@+id/etValorActividad"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Ingrese Valor Actividad"
-            android:layout_marginBottom="20dp"/>
-
-        <!-- Botones inferiores -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center"
-            android:layout_marginBottom="20dp">
-
-            <Button
-                android:id="@+id/btnGrabar"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="GRABAR"
-                android:backgroundTint="#2C6B53"
-                android:textColor="#FFFFFF"
-                android:layout_marginEnd="12dp"/>
-
-            <Button
-                android:id="@+id/btnSalir"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="SALIR"
-                android:backgroundTint="#2C6B53"
-                android:textColor="#FFFFFF"/>
-        </LinearLayout>
-
-        <!-- Imagen onda abajo -->
-
-    </LinearLayout>
-
- </FrameLayout>
-
-</LinearLayout>
-
+</RelativeLayout>

@@ -1,31 +1,30 @@
-<?xml version="1.0" encoding="utf-8"?><!-- 1. Usa RelativeLayout como el contenedor raíz -->
+<?xml version="1.0" encoding="utf-8"?>
+<!-- ARCHIVO 2/3: EL LAYOUT DE REGISTRO CON EL HEADER INCLUIDO -->
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/green_menues"
-    android:paddingTop="25dp"
-    >
+    android:background="@color/green_menues">
 
-    <include layout="@layout/activity_layout_footer" />
+    <!-- 1. INCLUIMOS EL NUEVO HEADER EN LA PARTE SUPERIOR -->
+    <include
+        android:id="@+id/mi_header_con_boton"
+        layout="@layout/layout_header_con_boton" />
 
-
+    <!-- 2. TU FORMULARIO EMPIEZA JUSTO DEBAJO DEL HEADER -->
     <ScrollView
         android:id="@+id/scrollViewContent"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_below="@id/mi_header_con_boton">
 
-        >
-
-
-
+        <!-- TU FORMULARIO ORIGINAL, SIN CAMBIOS INTERNOS -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:padding="16dp">
 
-
-
+            <!-- ... (Aquí va todo tu formulario que ya funciona, desde el TextView "Registro de nuevo usuario" hasta el botón "Inscribir". No lo pego todo para no hacer esto gigante, pero va todo tu contenido aquí) ... -->
 
             <TextView
                 android:layout_width="wrap_content"
@@ -63,6 +62,25 @@
                 android:hint="@string/dni"
                 android:inputType="number"
                 android:layout_marginBottom="16dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Elija una opción"
+                android:textStyle="bold"
+                android:textColor="@android:color/black"
+                android:layout_marginStart="4dp"
+                android:layout_marginBottom="4dp"/>
+
+            <Spinner
+                android:id="@+id/spinnerRolCliente"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="48dp"
+                android:background="@android:drawable/btn_dropdown"
+                android:layout_marginBottom="24dp"/>
+
+
             <EditText
                 android:id="@+id/editFechaNacimiento"
                 android:layout_width="match_parent"
@@ -110,16 +128,8 @@
                 android:layout_gravity="center_horizontal"
                 android:backgroundTint="@color/green"
                 android:text="@string/inscribir"
-                android:textSize="18sp"
-
-                />
-
-
-
+                android:textSize="18sp"/>
 
         </LinearLayout>
     </ScrollView>
-
-
-
 </RelativeLayout>

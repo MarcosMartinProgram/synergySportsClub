@@ -12,10 +12,11 @@
     <!-- Botón de "Atrás" a la izquierda -->
     <ImageButton
         android:id="@+id/buttonAtrasHeader"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/icon_atras"
+        android:layout_width="42dp"
+        android:layout_height="42dp"
+        android:layout_marginTop="20dp"
         android:background="?attr/selectableItemBackgroundBorderless"
-        android:contentDescription="@string/bot_n_atras" />
+        android:contentDescription="@string/bot_n_atras"
+        android:src="@drawable/icon_atras" />
 
 </LinearLayout>

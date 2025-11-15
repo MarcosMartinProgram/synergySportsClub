@@ -11,7 +11,7 @@ class DBHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null
 
     // ... (companion object y onCreate no cambian, pero te los pongo para que reemplaces todo sin miedo)
     companion object {
-        private const val DATABASE_VERSION = 1
+        private const val DATABASE_VERSION = 8
         private const val DATABASE_NAME = "synergy_sport_club.db"
     }
 
@@ -42,12 +42,32 @@ class DBHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null
                 fichaMedica INTEGER NOT NULL DEFAULT 0,
                 FOREIGN KEY(idRol) REFERENCES roles(idRol)
             );"""
+        val CREATE_TABLE_PAGO_CUOTAS = """
+        CREATE TABLE pago_cuotas (
+            idPagoCuota INTEGER PRIMARY KEY AUTOINCREMENT,
+            idPersona INTEGER NOT NULL,            -- Quién pagó (FK a la tabla 'socios')
+            fecha_pago TEXT NOT NULL,          -- Cuándo pagó (Formato 'YYYY-MM-DD')
+            meses_pagados INTEGER NOT NULL,    -- Cuántos meses pagó (1, 3, 6)
+            metodo_pago TEXT NOT NULL,         -- 'Efectivo', 'Tarjeta', etc.
+            monto_total REAL NOT NULL,           -- El monto total abonado
+            FOREIGN KEY(idPersona) REFERENCES persona(idPersona)
+        );"""
 
         // El resto de tus tablas...
-        val CREATE_TABLE_ACTIVIDADES = "CREATE TABLE actividades (idActividad INTEGER PRIMARY KEY AUTOINCREMENT, nombre TEXT NOT NULL UNIQUE, descripcion TEXT);"
+        val CREATE_TABLE_ACTIVIDADES = "CREATE TABLE actividades (idActividad INTEGER PRIMARY KEY AUTOINCREMENT, nombre TEXT NOT NULL UNIQUE, horarios TEXT NOT NULL, dias TEXT NOT NULL, cupo INTEGER NOT NULL);"
         val CREATE_TABLE_VALOR_CUOTA = "CREATE TABLE valor_cuota (idValorCuota INTEGER PRIMARY KEY AUTOINCREMENT, monto REAL NOT NULL, fechaDesde TEXT NOT NULL, descripcion TEXT);"
         val CREATE_TABLE_VALOR_ACTIVIDAD = "CREATE TABLE valor_actividad (idValorActividad INTEGER PRIMARY KEY AUTOINCREMENT, idActividad INTEGER NOT NULL, monto REAL NOT NULL, fechaDesde TEXT NOT NULL, FOREIGN KEY(idActividad) REFERENCES actividades(idActividad));"
         val CREATE_TABLE_PAGOS = "CREATE TABLE pagos (idPago INTEGER PRIMARY KEY AUTOINCREMENT, idPersona INTEGER NOT NULL, fechaPago TEXT NOT NULL, montoPagado REAL NOT NULL, concepto TEXT NOT NULL, idReferencia INTEGER, FOREIGN KEY(idPersona) REFERENCES persona(idPersona));"
+        val CREATE_TABLE_PAGO_SOCIO = """
+        CREATE TABLE pagosocio (
+            idPago INTEGER PRIMARY KEY AUTOINCREMENT,
+            idPersona INTEGER NOT NULL,
+            fechaPago TEXT NOT NULL,
+            monto REAL NOT NULL,
+            fechaVencimiento TEXT NOT NULL,
+            FOREIGN KEY(idPersona) REFERENCES persona(idPersona)
+        );
+    """
 
         try {
             db.execSQL("PRAGMA foreign_keys=ON;")
@@ -59,6 +79,7 @@ class DBHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null
             db.execSQL(CREATE_TABLE_VALOR_CUOTA)
             db.execSQL(CREATE_TABLE_VALOR_ACTIVIDAD)
             db.execSQL(CREATE_TABLE_PAGOS)
+            db.execSQL(CREATE_TABLE_PAGO_SOCIO)
             Log.i("DBHelper", "Resto de tablas creadas.")
 
             insertarRolesIniciales(db)
@@ -94,6 +115,8 @@ class DBHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null
         db.execSQL("DROP TABLE IF EXISTS actividades")
         db.execSQL("DROP TABLE IF EXISTS persona")
         db.execSQL("DROP TABLE IF EXISTS roles")
+        db.execSQL("DROP TABLE IF EXISTS pago_cuotas")
+        db.execSQL("DROP TABLE IF EXISTS pagosocio")
         onCreate(db)
     }
 

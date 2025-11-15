@@ -16,87 +16,64 @@ import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
 
+
+
 class GestionValorCuotaActivity : AppCompatActivity() {
 
-    // DAO
+    private lateinit var etPrecioCuota: EditText
+    private lateinit var btnGuardarPrecio: Button
     private lateinit var valorCuotaDAO: ValorCuotaDAO
-
-    // Vistas del Layout
-    private lateinit var etMontoCuota: EditText
-    private lateinit var etFechaDesdeCuota: EditText
-    private lateinit var btnGrabarValorCuota: Button
-    private lateinit var btnSalir: Button
-    private lateinit var tvMensajeExitoCuota: TextView
-    private lateinit var buttonAtrasMenu: ImageButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_gestion_valor_cuota)
 
-        // 1. Inicializar DAO y Vistas
+        // Inicializar vistas y DAO
+        etPrecioCuota = findViewById(R.id.etMontoCuota)
+        btnGuardarPrecio = findViewById(R.id.btnGrabarValorCuota)
         valorCuotaDAO = ValorCuotaDAO(this)
-        etMontoCuota = findViewById(R.id.etMontoCuota)
-        etFechaDesdeCuota = findViewById(R.id.etFechaDesdeCuota)
-        btnGrabarValorCuota = findViewById(R.id.btnGrabarValorCuota)
-        tvMensajeExitoCuota = findViewById(R.id.tvMensajeExitoCuota)
-        btnSalir = findViewById(R.id.btnSalir)
-        buttonAtrasMenu = findViewById(R.id.buttonAtras)
 
-        // 2. Configurar el botón de Grabar
-        btnGrabarValorCuota.setOnClickListener {
-            guardarNuevoValorCuota()
-        }
+        // Cargar el precio actual al abrir la pantalla
+        cargarPrecioActual()
 
-        // 3. Ocultar mensaje de éxito si el usuario empieza a editar
-        etMontoCuota.doAfterTextChanged {
-            tvMensajeExitoCuota.visibility = View.INVISIBLE
-        }
-
-        // 4. Configurar botones de navegación
-        btnSalir.setOnClickListener {
-            finish() // Cierra la actividad actual y vuelve a la anterior
-        }
-
-        buttonAtrasMenu.setOnClickListener {
-            finish() // Lo mismo para el botón de la flecha
+        btnGuardarPrecio.setOnClickListener {
+            guardarNuevoPrecio()
         }
     }
 
-    private fun guardarNuevoValorCuota() {
-        // Obtener y validar el monto
-        val montoStr = etMontoCuota.text.toString().trim()
-        if (montoStr.isBlank()) {
-            etMontoCuota.error = "El monto no puede estar vacío"
-            return
-        }
-        val monto = montoStr.toDoubleOrNull()
-        if (monto == null || monto <= 0) {
-            etMontoCuota.error = "Ingrese un valor numérico positivo"
-            return
-        }
-
-        // Obtener la fecha (si está vacía, usar la de hoy)
-        var fecha = etFechaDesdeCuota.text.toString().trim()
-        if (fecha.isBlank()) {
-            fecha = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault()).format(Date())
-        }
-
-        // Guardar en la base de datos usando el DAO
-        val idGenerado = valorCuotaDAO.addValorCuota(monto, fecha)
-
-        if (idGenerado != -1L) {
-            // Mostrar mensaje de éxito en pantalla
-            tvMensajeExitoCuota.visibility = View.VISIBLE
-            limpiarFormulario()
+    private fun cargarPrecioActual() {
+        // Usamos el nuevo método para obtener el último precio guardado
+        val cuotaActual = valorCuotaDAO.getValorCuotaActual()
+        if (cuotaActual != null) {
+            etPrecioCuota.setText(cuotaActual.monto.toString())
         } else {
-            Toast.makeText(this, "Error al guardar el valor de la cuota", Toast.LENGTH_LONG).show()
+            etPrecioCuota.setText("0.0") // Valor por defecto si la tabla está vacía
         }
     }
 
-    private fun limpiarFormulario() {
-        etMontoCuota.text.clear()
-        etFechaDesdeCuota.text.clear()
-        // Pone el foco de nuevo en el primer campo para una entrada rápida
-        etMontoCuota.requestFocus()
+    private fun guardarNuevoPrecio() {
+        val precioTexto = etPrecioCuota.text.toString().trim()
+
+        if (precioTexto.isEmpty()) {
+            Toast.makeText(this, "El precio no puede estar vacío", Toast.LENGTH_SHORT).show()
+            return
+        }
+
+        val nuevoMonto = precioTexto.toDoubleOrNull()
+        if (nuevoMonto == null || nuevoMonto < 0) {
+            Toast.makeText(this, "Por favor, ingrese un precio válido", Toast.LENGTH_SHORT).show()
+            return
+        }
+
+        // Usamos el nuevo método que siempre inserta un registro
+        val id = valorCuotaDAO.addNuevoValorCuota("Cuota Mensual General", nuevoMonto)
+
+        if (id != -1L) {
+            Toast.makeText(this, "¡Nuevo precio de cuota guardado con éxito!", Toast.LENGTH_SHORT).show()
+            val intent = Intent(this, MenuPrincipalActivity::class.java)
+            startActivity(intent)
+        } else {
+            Toast.makeText(this, "Error al guardar el precio.", Toast.LENGTH_SHORT).show()
+        }
     }
 }

@@ -1,6 +1,7 @@
 // Archivo: ActividadDAO.kt
 package com.martinmarcos.synergysportclub.data.dao
 
+import android.annotation.SuppressLint
 import android.content.ContentValues
 import android.content.Context
 import android.database.Cursor
@@ -90,6 +91,32 @@ class ActividadDAO(context: Context) {
             return 0 // 0 filas afectadas si hay error
         }
     }
+    /*@SuppressLint("Range")
+    fun getAllActividades(): List<Actividad> {
+        val db = dbHelper.readableDatabase
+        val actividades = mutableListOf<Actividad>()
+        val query = "SELECT * FROM actividades ORDER BY nombre ASC"
+
+        db.rawQuery(query, null).use { cursor ->
+            if (cursor.moveToFirst()) {
+                do {
+                    val actividad = Actividad(
+                        idActividad = cursor.getInt(cursor.getColumnIndex("idActividad")),
+                        nombre = cursor.getString(cursor.getColumnIndex("nombre")),
+                        horarios = cursor.getString(cursor.getColumnIndex("horarios")),
+                        dias = cursor.getString(cursor.getColumnIndex("dias")),
+                        cupo = cursor.getInt(cursor.getColumnIndex("cupo"))
+                    )
+                    actividades.add(actividad)
+                } while (cursor.moveToNext())
+                Log.i("ActividadDAO", "Se encontraron ${actividades.size} actividades.")
+            } else {
+                Log.w("ActividadDAO", "No se encontraron actividades en la base de datos.")
+            }
+        }
+        db.close()
+        return actividades
+    }*/
 
     // ----------- DELETE -----------
     fun deleteActividad(id: Int): Int {

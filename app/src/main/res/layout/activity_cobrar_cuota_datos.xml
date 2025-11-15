@@ -37,7 +37,7 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginBottom="24dp"/>
             <TextView
-                android:layout_width="wrap_content"
+                android:id="@+id/tvSocioDni"                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Socio N° (DNI) 11111111"
                 android:textSize="24sp"
@@ -45,6 +45,7 @@
                 android:layout_marginTop="20dp"
                 android:layout_gravity="start" />
             <TextView
+                android:id="@+id/tvSocioNombre"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/nombre_xxxxxxxx_xxxxxxx"
@@ -54,6 +55,7 @@
                 android:layout_gravity="start" />
 
             <TextView
+                android:id="@+id/tvFechaPago"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Fecha de Pago: 01/01/01"
@@ -62,6 +64,7 @@
                 android:layout_marginTop="10dp"
                 android:layout_gravity="start" />
             <TextView
+                android:id="@+id/tvFechaVencimiento"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Fecha de Vencimiento: 01/01/01"
@@ -70,6 +73,7 @@
                 android:layout_marginTop="20dp"
                 android:layout_gravity="start" />
             <TextView
+                android:id="@+id/tvImporte"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/importe_20000"

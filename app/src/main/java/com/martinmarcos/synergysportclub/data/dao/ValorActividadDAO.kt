@@ -3,6 +3,7 @@
 
 package com.martinmarcos.synergysportclub.data.dao
 
+import android.annotation.SuppressLint
 import android.content.ContentValues
 import android.content.Context
 import android.util.Log
@@ -33,5 +34,22 @@ class ValorActividadDAO(context: Context) {
         }
 
         return nuevoId
+    }
+    @SuppressLint("Range")
+    fun getMontoActualActividad(idActividad: Int): Double? {
+        val db = dbHelper.readableDatabase
+        var monto: Double? = null
+        val query = "SELECT monto FROM valor_actividad WHERE idActividad = ? ORDER BY fechaDesde DESC LIMIT 1"
+
+        db.rawQuery(query, arrayOf(idActividad.toString())).use { cursor ->
+            if (cursor.moveToFirst()) {
+                monto = cursor.getDouble(cursor.getColumnIndex("monto"))
+                Log.i("ValorActividadDAO", "Monto encontrado para actividad $idActividad: $monto")
+            } else {
+                Log.w("ValorActividadDAO", "No se encontró precio para la actividad con ID: $idActividad")
+            }
+        }
+        db.close()
+        return monto
     }
 }

@@ -1,23 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
-    El ScrollView es el contenedor principal. Solo puede tener UN hijo directo.
-    Su altura es 'match_parent' para ocupar toda la pantalla.
--->
+
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#8FB08F"
     android:fillViewport="true">
-    <!--
-        NOTA: android:fillViewport="true" es una buena práctica. Le permite al hijo
-        ocupar toda la altura si su contenido es más pequeño que la pantalla.
-    -->
 
-    <!--
-        Este LinearLayout es ahora el ÚNICO hijo directo del ScrollView.
-        Su altura es 'wrap_content', lo que significa que crecerá tanto como
-        su contenido lo necesite. Esto es lo que permite que el ScrollView funcione.
-    -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -25,9 +13,7 @@
         android:padding="16dp"
         android:gravity="center_horizontal">
 
-        <!-- El FrameLayout que estaba aquí ha sido eliminado. -->
 
-        <!-- Título -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -80,8 +66,7 @@
             android:inputType="text"
             android:minHeight="48dp"/>
 
-        <!-- Aquí sigue el resto de tu contenido... (CheckBoxes, otros EditText, etc.) -->
-        <!-- Texto días -->
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -201,10 +186,7 @@
                 android:textColor="#FFFFFF"/>
         </LinearLayout>
 
-        <!--
-            El include del footer ahora debe estar dentro de este LinearLayout,
-            y el ImageView de la onda también.
-        -->
+
         <include layout="@layout/activity_layout_footer"/>
 
         <ImageView

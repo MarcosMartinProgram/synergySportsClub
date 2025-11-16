@@ -1,4 +1,3 @@
-// Archivo: ActividadDAO.kt
 package com.martinmarcos.synergysportclub.data.dao
 
 import android.annotation.SuppressLint
@@ -31,7 +30,7 @@ class ActividadDAO(context: Context) {
         return nuevoId
     }
 
-    // ----------- READ all -----------
+
     fun getAllActividades(): List<Actividad> {
         val actividades = mutableListOf<Actividad>()
         val db = dbHelper.readableDatabase
@@ -47,7 +46,7 @@ class ActividadDAO(context: Context) {
         return actividades
     }
 
-    // ----------- READ (uno) -----------
+
     fun getActividadById(id: Int): Actividad? {
         val db = dbHelper.readableDatabase
         var actividad: Actividad? = null

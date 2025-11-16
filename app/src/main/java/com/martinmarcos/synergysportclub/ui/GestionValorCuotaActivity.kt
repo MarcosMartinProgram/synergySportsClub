@@ -23,6 +23,7 @@ class GestionValorCuotaActivity : AppCompatActivity() {
     private lateinit var etPrecioCuota: EditText
     private lateinit var btnGuardarPrecio: Button
     private lateinit var valorCuotaDAO: ValorCuotaDAO
+    private lateinit var btnAtras: ImageButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,6 +39,11 @@ class GestionValorCuotaActivity : AppCompatActivity() {
 
         btnGuardarPrecio.setOnClickListener {
             guardarNuevoPrecio()
+        }
+        btnAtras = findViewById(R.id.buttonAtras)
+        btnAtras.setOnClickListener {
+
+            finish()
         }
     }
 

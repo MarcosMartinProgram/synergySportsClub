@@ -28,6 +28,7 @@ class GestionValorActividadActivity : AppCompatActivity() {
     private lateinit var etFechaValor: EditText
     private lateinit var etValorActividad: EditText
     private lateinit var btnGrabar: Button
+    private lateinit var btnAtras: ImageButton
 
     // Lista para guardar las actividades que vienen de la BBDD
     private var listaActividades: List<Actividad> = emptyList()
@@ -52,8 +53,13 @@ class GestionValorActividadActivity : AppCompatActivity() {
         btnGrabar.setOnClickListener {
             guardarValorActividad()
         }
+        btnAtras = findViewById(R.id.buttonAtras)
+        btnAtras.setOnClickListener {
 
-        // --- Código de navegación que ya tenías ---
+            finish()
+        }
+
+
         configurarNavegacion()
     }
 

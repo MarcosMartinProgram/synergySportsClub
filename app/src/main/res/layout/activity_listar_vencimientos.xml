@@ -15,12 +15,9 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:orientation="vertical"
         android:padding="16dp">
-
-
-
 
         <TextView
             android:layout_width="wrap_content"
@@ -33,14 +30,13 @@
             android:layout_marginBottom="24dp"/>
 
         <EditText
-            android:id="@+id/editTextNombre"
+            android:id="@+id/editTextFecha"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:minHeight="48dp"
-            android:hint="Ingrese Una Fecha"
+            android:hint="Ingrese Fecha (AAAA-MM-DD)"
             android:inputType="date"
             android:layout_marginBottom="16dp"/>
-
 
         <Button
             android:id="@+id/buttonListar"
@@ -50,13 +46,25 @@
             android:backgroundTint="@color/green"
             android:text="Listar"
             android:textSize="18sp"
+            android:layout_marginBottom="24dp"/>
 
-            />
+        <!-- INICIO DE LA SECCIÓN AÑADIDA -->
+        <TextView
+            android:id="@+id/tvResultadosLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Resultados:"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:visibility="gone" /> <!-- Inicialmente oculto -->
 
-
-
-
-
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewVencimientos"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_marginTop="8dp"/>
+        <!-- FIN DE LA SECCIÓN AÑADIDA -->
 
     </LinearLayout>
 

@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageButton
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.martinmarcos.synergysportclub.R
@@ -15,6 +16,7 @@ class CobrarCuotaActivity : AppCompatActivity() {
     private lateinit var etDniSocio: EditText
     private lateinit var btnBuscarSocio: Button
     private lateinit var personaDAO: PersonaDAO
+    private lateinit var btnAtras: ImageButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,6 +30,12 @@ class CobrarCuotaActivity : AppCompatActivity() {
         btnBuscarSocio.setOnClickListener {
             buscarYProcederAlCobro()
         }
+        btnAtras = findViewById(R.id.buttonAtras)
+        btnAtras.setOnClickListener {
+
+            finish()
+        }
+
     }
 
     private fun buscarYProcederAlCobro() {

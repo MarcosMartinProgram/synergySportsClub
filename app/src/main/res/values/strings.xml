@@ -75,7 +75,8 @@
     <string name="dia_viernes">Viernes</string>
     <string name="dia_sabado">Sábado</string>
     <string name="dia_domingo">Domingo</string>
-
+    <string name="apellido1">Apellido</string>
+    <string name="atras">atras</string>
 
 
 </resources>

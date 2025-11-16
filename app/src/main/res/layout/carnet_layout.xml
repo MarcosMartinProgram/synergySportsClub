@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/carnet_container"
+    android:layout_width="350dp"
+    android:layout_height="200dp"
+    android:background="@drawable/carnet_background"
+    android:padding="16dp">
+
+    <!-- 1. Encabezado principal del club, centrado arriba -->
+    <TextView
+        android:id="@+id/tvTituloClub"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:text="Synergy Sport Club"
+        android:textColor="@android:color/white"
+        android:textSize="22sp"
+        android:textStyle="bold" />
+
+    <!-- 2. Contenedor principal para alinear logo y datos -->
+    <LinearLayout
+        android:id="@+id/datos_principales_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvTituloClub"
+        android:layout_marginTop="15dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <!-- Logo a la izquierda -->
+        <ImageView
+            android:id="@+id/ivLogoCarnet"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@drawable/logosynergychico" />
+
+        <!-- Datos del Socio a la derecha del logo -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="16dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvNombreSocioCarnet"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nombre Apellido"
+                android:textColor="@android:color/white"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvDniSocioCarnet"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="DNI: 12.345.678"
+                android:textColor="@android:color/white"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/tvIdSocioCarnet"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="Socio N°: 1024"
+                android:textColor="@android:color/white"
+                android:textSize="14sp"
+                android:textStyle="italic" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!-- 3. Fecha de vencimiento, alineada en la parte inferior -->
+    <TextView
+        android:id="@+id/tvFechaVencimientoCarnet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:text="Válido hasta: 31/12/2026"
+        android:textColor="@android:color/white"
+        android:textSize="12sp" />
+
+</RelativeLayout>

@@ -22,10 +22,11 @@
         android:id="@+id/etApellidoRegister"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Apellido"
+        android:hint="@string/apellido1"
         android:inputType="textPersonName"
         android:minHeight="48dp"
-        android:layout_marginBottom="16dp" />
+        android:layout_marginBottom="16dp"
+        android:gravity="center" />
 
     <!-- NUEVO CAMPO PARA EL DNI -->
     <EditText
@@ -35,7 +36,8 @@
         android:hint="DNI"
         android:inputType="number"
         android:minHeight="48dp"
-        android:layout_marginBottom="16dp" />
+        android:layout_marginBottom="16dp"
+        android:gravity="center" />
 
     <EditText
         android:id="@+id/etUsernameRegister"

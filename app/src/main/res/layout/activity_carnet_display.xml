@@ -1,0 +1,41 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    android:padding="16dp"
+    android:background="@color/green_menues">
+
+    <ImageButton
+        android:id="@+id/buttonAtras"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:contentDescription="@string/atras"
+        android:src="@drawable/icon_atras"
+         />
+    <!-- Este FrameLayout contendrá el carnet que diseñamos -->
+    <FrameLayout
+        android:id="@+id/carnet_preview_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true" />
+
+
+    <Button
+        android:id="@+id/buttonCompartirPdf"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/carnet_preview_container"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="32dp"
+        android:backgroundTint="@color/green"
+        android:text="Compartir como PDF"
+        android:drawableStart="@android:drawable/ic_menu_share"
+        android:padding="16dp"/>
+
+</RelativeLayout>
+    
